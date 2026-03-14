@@ -23,9 +23,9 @@ PageTitle.css = `
   margin: 0;
 }
 .page-title-link {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
   gap: 0.4rem;
   text-decoration: none;
 }
@@ -35,10 +35,11 @@ PageTitle.css = `
   font-family: var(--titleFont);
 }
 .page-title-logo {
-  width: 3.5rem;
-  height: 3.5rem;
-  object-fit: cover;
+  width: 4rem !important;
+  height: 4rem !important;
+  object-fit: cover !important;
   border-radius: 4px;
+  display: block !important;
 }
 `
 
