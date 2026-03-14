@@ -22,13 +22,13 @@ title: Welcome / Bienvenue !
     <h1 style="text-align: left;">Technologies</h1>
     <div style="display: flex; gap: 2rem; justify-content: center; align-items: center;">
         <div style="flex: 0 0 25%;">
-            <img src="../static/Logos/Logo_Unity.png" alt="description" width="100%">
+            <img src="../static/Logos/Logo_Unity.png" alt="" width="100%">
         </div>
         <div style="flex: 0 0 25%;">
-            <img src="../static/Logos/Logo_C.png" alt="description" width="100%">
+            <img src="../static/Logos/Logo_C.png" alt="" width="100%">
         </div>
         <div style="flex: 0 0 25%;">
-            <img src="../static/Logos/Logo_Blender.png" alt="description" width="100%">
+            <img src="../static/Logos/Logo_Blender.png" alt="" width="100%">
     </div>
 </div>
 <div style="display: flex; justify-content: center; align-items: center;">* - * - * - * -  - * - * - * - * - * - * - * - * - * - * - * - * - *</div>
@@ -44,7 +44,7 @@ title: Welcome / Bienvenue !
     </div>
     <!-- Gif -->
     <div style="flex: 0 0 35%;">
-        <img src="../static/gifs/simpsons_homer.gif" alt="description" width="100%">
+        <img src="../static/gifs/simpsons_homer.gif" alt="" width="100%">
     </div>
     <!-- French -->
     <div style="flex: 0 0 25%;">
