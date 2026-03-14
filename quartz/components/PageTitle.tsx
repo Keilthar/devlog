@@ -34,8 +34,8 @@ PageTitle.css = `
   font-family: var(--titleFont);
 }
 .page-title-logo {
-  width: 8rem;
-  height: 8rem;
+  width: 14rem;
+  height: 14rem;
   object-fit: cover;
   border-radius: 4px;
 }
