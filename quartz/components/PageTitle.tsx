@@ -6,10 +6,12 @@ import { i18n } from "../i18n"
 const PageTitle: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzComponentProps) => {
   const title = cfg?.pageTitle ?? i18n(cfg.locale).propertyDefaults.title
   const baseDir = pathToRoot(fileData.slug!)
+  const basePath = cfg.baseUrl.includes("/") ? "/" + cfg.baseUrl.split("/").slice(1).join("/") : ""
+  const logoSrc = `${basePath}/static/logo.png`
   return (
     <h2 class={classNames(displayClass, "page-title")}>
       <a href={baseDir} class="page-title-link">
-        <img src={`${baseDir}/static/logo.png`} alt="Keilthar logo" class="page-title-logo" />
+        <img src={logoSrc} alt="Keilthar logo" class="page-title-logo" />
         <span>{title}</span>
       </a>
     </h2>
