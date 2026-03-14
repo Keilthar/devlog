@@ -10,4 +10,4 @@ Topics include: pathfinding, networking, rendering, performance, ECS architectur
 
 ---
 
-[Read in English →](/devlog/en) &nbsp;|&nbsp; [Lire en français →](/devlog/fr)
+[Read in English →](/en) &nbsp;|&nbsp; [Lire en français →](/fr)
