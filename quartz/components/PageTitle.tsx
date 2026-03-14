@@ -9,30 +9,34 @@ const PageTitle: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzCompo
   const basePath = cfg.baseUrl.includes("/") ? "/" + cfg.baseUrl.split("/").slice(1).join("/") : ""
   const logoSrc = `${basePath}/static/logo.png`
   return (
-    <h2 class={classNames(displayClass, "page-title")}>
+    <div class={classNames(displayClass, "page-title")}>
       <a href={baseDir} class="page-title-link">
         <img src={logoSrc} alt="Keilthar logo" class="page-title-logo" />
-        <span>{title}</span>
+        <h2>{title}</h2>
       </a>
-    </h2>
+    </div>
   )
 }
 
 PageTitle.css = `
 .page-title {
+  margin: 0;
+}
+.page-title-link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+.page-title-link h2 {
   font-size: 1.75rem;
   margin: 0;
   font-family: var(--titleFont);
 }
-.page-title-link {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  text-decoration: none;
-}
 .page-title-logo {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
   object-fit: cover;
   border-radius: 4px;
 }
