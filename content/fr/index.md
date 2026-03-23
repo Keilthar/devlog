@@ -25,7 +25,7 @@ Je suis **développeur indépendant autodidacte depuis 2019**. Je travaille sur 
  
 <div style="display: flex; gap: 20px; align-items: center;">
     <div style="flex: 1;">
-        <img src="../../static/png/Scope_Creep.png" alt="Scope creep" width="100%"/>
+        <img src="/static/png/Scope_Creep.png" alt="Scope creep" width="100%"/>
     </div>
     <div style="flex: 1;">
 
@@ -66,13 +66,13 @@ Bref si vous vous intéressez au **game dev**, moyen que je parle d'un sujet qui
     <h1 style="text-align: left;">Technologies</h1>
     <div style="display: flex; gap: 2rem; justify-content: center; align-items: center;">
         <div style="flex: 0 0 25%;">
-            <img src="../../static/Logos/Logo_Unity.png" width="100%">
+            <img src="/static/Logos/Logo_Unity.png" width="100%">
         </div>
         <div style="flex: 0 0 25%;">
-            <img src="../../static/Logos/Logo_C.png" width="100%">
+            <img src="/static/Logos/Logo_C.png" width="100%">
         </div>
         <div style="flex: 0 0 25%;">
-            <img src="../../static/Logos/Logo_Blender.png" width="100%">
+            <img src="/static/Logos/Logo_Blender.png" width="100%">
     </div>
 </div>
 
