@@ -21,7 +21,7 @@ title: Articles (FR)
 
 La réponse courte et nulle : personne ! 😜
 
-Je suis **développeur indépendant autoditacte depuis 2019**. Je travaille sur **<span style="color: steelblue;">Unity</span>** et **<span style="color: steelblue;">Blender</span>**. Mais il se trouve que je souffre de la maladie de l'overscope : j'aime créer des systèmes beaucoup trop ambitieux pour le petit développeur solo que je suis. 
+Je suis **développeur indépendant autodidacte depuis 2019**. Je travaille sur **<span style="color: steelblue;">Unity</span>** et **<span style="color: steelblue;">Blender</span>**. Mais il se trouve que je souffre de la maladie de l'overscope : j'aime créer des systèmes beaucoup trop ambitieux pour le petit développeur solo que je suis. 
  
 <div style="display: flex; gap: 20px; align-items: center;">
     <div style="flex: 1;">
@@ -29,22 +29,22 @@ Je suis **développeur indépendant autoditacte depuis 2019**. Je travaille sur 
     </div>
     <div style="flex: 1;">
 
-J'essaie donc tant bien que mal de créer un **Tower Defense** inspiré d'**[Orcs Must Die](https://store.steampowered.com/app/201790/Orcs_Must_Die_2/)** et de **[Dungeon Defenders](https://store.steampowered.com/app/236110/Dungeon_Defenders_II/)**, avec une petite touche de **horde mode** à la **[They Are Billions](https://store.steampowered.com/app/644930/They_Are_Billions/)** et autre **[Age of Darkness : Final Stand](https://store.steampowered.com/app/1426450/Age_of_Darkness_Final_Stand/)**. ou **[Cataclismo](https://store.steampowered.com/app/1422440/Cataclismo/)**.
+J'essaie donc tant bien que mal de créer un **Tower Defense** inspiré d'**[Orcs Must Die](https://store.steampowered.com/app/201790/Orcs_Must_Die_2/)** et de **[Dungeon Defenders](https://store.steampowered.com/app/236110/Dungeon_Defenders_II/)**, avec une petite touche de **horde mode** à la **[They Are Billions](https://store.steampowered.com/app/644930/They_Are_Billions/)** et autre **[Age of Darkness : Final Stand](https://store.steampowered.com/app/1426450/Age_of_Darkness_Final_Stand/)**, ou **[Cataclismo](https://store.steampowered.com/app/1422440/Cataclismo/)**.
 
 Le tout accompagné d'un **éditeur de cartes partageables** et d'un mode **multijoueur avec serveur self-hosted**, comme on en avait à l'époque d'Age of Empires II et autres Warcraft 3 (ouai je suis un peu vieux, enfant des années 80 tout ça tout ça...).
 
 Bref un petit programme, vous en conviendrez ! Et si j'avance indéniablement lentement, j'en apprends aussi énormément.
 
-Je me suis donc dis que c'est bête de garder toutes ces expériences pour moi tout seul et que ça pourrait aussi en intéresser d'autres !
+Je me suis donc dit que c'est bête de garder toutes ces expériences pour moi tout seul et que ça pourrait aussi en intéresser d'autres !
 
 </div>
 </div>
 
-**Que trouveez-vous ici ?**
+**Que trouverez-vous ici ?**
 
-Je vais donc déblatérer sur pleins de sujets :
+Je vais donc déblatérer sur plein de sujets :
 - développement d'**<span style="color: steelblue;">action RPG</span>** et de **<span style="color: steelblue;">Tower Defense</span>**
-- **<span style="color: steelblue;">simulations</span>** de foules , de feuilles 🍂, d'herbe 🌿 et d'autres trucs improbables
+- **<span style="color: steelblue;">simulations</span>** de foules, de feuilles 🍂, d'herbe 🌿 et d'autres trucs improbables
 - **<span style="color: steelblue;">éditeur de map</span>** et interfaces **<span style="color: steelblue;">diégétiques</span>**
 - réseau **<span style="color: steelblue;">multijoueur</span>** avec du self-hosting
 - implémentation **<span style="color: steelblue;">ECS</span>** (Entity - Component - System)
