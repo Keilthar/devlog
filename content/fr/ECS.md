@@ -30,7 +30,7 @@ title: ECS
 
 **Aux origines de la galère : le <span style="color: steelblue;">OOP</span> !**
 
-Le **OOP (Object Oriented Programming)** dispose de cette incroyable force qu'il épouse à merveille les prédispositions de nos cerveaux mollassons : on **découpe nos concepts métier en objets**, qui portent à la fois des **propriétés** et des **méthodes/fonctions**. Chaque objet a droit à son **instance distincte** et il pourra donc être **autonome** dans son coin. On pourra ensuite tomber dans l'enfer des **héritages** et des dépendances en cascade, mais c'est un autre sujet. 😌
+Le **OOP (Object Oriented Programming)** dispose de cette incroyable force qu'il épouse à merveille les prédispositions de nos cerveaux mollassons : on **découpe nos concepts métier en objets**, qui portent à la fois des **propriétés** et des **méthodes/fonctions**. Chaque objet a droit à son **instance distincte** et il pourra donc être **autonome** dans son coin. Et on pourra ensuite lentement tomber dans l'enfer des **héritages** et des dépendances en cascade... mais c'est un autre sujet. 😌
 
 Dans le cadre du jeu vidéo, cette approche est trèèèèèès attrayante. Parce que non seulement ça colle d'un point de vue découpage fonctionnel (un objet par joueur / ennemi / décors / UI...), mais ça colle aussi vachement bien d'un point de vue gameplay :
 je veux créer plusieurs ennemis distincts qui attaquent mon joueur ? Hop, une instance d'objet par ennemi, chacun avec ses propres points de vie, son propre attack pattern, sa propre reconnaissance du terrain et potentiellement, résultante de tout ça : un comportement unique par ennemi !
@@ -52,7 +52,7 @@ Mais tout aussi flexible et adapté qu'est le POO pour le game design, il a un p
 
 Cette nature indéfinie de l'objet oblige une architecture qui permet de manager n'importe quel élément qui lui serait attaché. Ne pouvant anticiper la structure de l'objet, sa création se fait à la volée avec un **rangement mémoire parcélaire** (ou en moins poétique : le **yolo mode**).
 
-Travailler sur un objet nécessite alors de le reconstituer façon fil d'Ariane, en lisant chaque section de mémoire où une partie de ses données est stockée.
+Travailler sur un objet nécessite alors de le reconstituer façon fil d'Ariane, en remontant à chaque section de mémoire où une partie de ses données est stockée.
 
 Or les accès mémoires, c'est le coeur de la performance et ce scan incessant pour reconstituer les objets est un couperet brutal.
 
@@ -114,11 +114,11 @@ L'ECS étant une réponse de performance, il est par nature **plus complexe et p
 
 L'industrie a choisi comme toujours l'approche la plus pragmatique à l'utilisation de l'ECS et de l'OOP : l'**hybride**. Savoir choisir ce qui mérite une approche ECS pour la performance VS choisir l'approche OOP quand le fonctionnel et l'itération priment.
 
-Mais si l'industrie a longtemps du traité l'ECS et l'OOP comme deux mondes séparés, une nouvelle voix s'ouvre. A la  <a href="https://youtu.be/BtObK0arD_M" target="_blank">GDC de mars 2026</a>, Unity a décidé de trancher le débat une bonne fois pour toute : pourquoi ne pas **fusionner** les 2 approches ?
+Mais si l'industrie a longtemps du traité l'ECS et l'OOP comme deux mondes séparés, une nouvelle voie s'ouvre. A la  <a href="https://youtu.be/BtObK0arD_M" target="_blank">GDC de mars 2026</a>, Unity a décidé de trancher le débat une bonne fois pour toute : pourquoi ne pas **fusionner** les 2 approches ?
 
 <img src="https://pbs.twimg.com/media/HCq5KsqaUAcM-dR?format=jpg&name=large" alt="GDC Unity 2026" width="100%"/>
 
-L'ECS deviendra un package core du moteur (et non plus un add-on à installer). Les entités deviennent le backend de tout le moteur : les GameObjects ne disparaissent pas, ils deviennent une couche de confort par dessus les entités, le moteur prennant la main pour faire la conversion. La force du design OOP par dessus, la puissance de l'ECS par dessous.
+L'ECS deviendra un package core du moteur (et non plus un add-on à installer). Les entités deviennent le backend de tout le moteur, à la manière d'un [**Bevy**](https://bevy.org/) : les GameObjects ne disparaissent pas, ils deviennent une couche de confort par dessus les entités, le moteur prennant la main pour faire la conversion. La force du design OOP par dessus, la puissance de l'ECS par dessous.
 <span style="color: orange;">-- L'ECS ne sera plus un choix, mais le socle. Le GameObject ne sera plus une alternative, mais une interface. --</span>
 
 En d'autres termes, l'approche hybride dont je parlais plus haut ne sera plus un compromis d'architecture, mais le mode de fonctionnement par défaut du moteur. Vous voulez du prototypage rapide ? Vous restez au niveau GameObject. Vous voulez de la performance brute ? Le moteur vous permettra de basculer votre architecture en GameObjects sous l'ECS et de profiter de ses options. Même données, même moteur, mais deux mondes en un.
