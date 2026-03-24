@@ -1,5 +1,6 @@
 ---
 title: ECS
+VideoID01: "f3AjoIE-H1c"
 ---
 
 <style>
@@ -93,6 +94,16 @@ Son design en soi est relativement simple :
 <img src="/static/png/ECS/Unity_ECS_Concept.png" alt="Concept ECS Unity" width="100%"/>
 
 Cette approche permet d'augmenter d'au moins un facteur (x10) les performances. Pour vous donner un ordre d'idée, à FPS (Frames Per Second) équivalent, avec une approche GameObject, je vais commencer à saturer le CPU vers **5 000 à 10 000 unités** sur Unity. Je n'ai aucun souci à gérer plus de **100 000 unités dans une implémentation ECS** (et je pourrais en gérer + si mon GPU ne rendait pas l'âme en parallèle).
+
+<iframe width="560" height="315"
+        src="https://www.youtube.com/embed/{{VideoID01}}?autoplay=1&mute=1&loop=1"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+</iframe>
+
 
 C'est une architecture extrêmement puissante, qui a trouvé moult cas d'usage : simulation de foules, de trafic, de villes et de projectiles/particules, qu'on retrouve souvent dans des types de jeu tel que les sandbox/openworld, RTS ou autres MMO qui manipulent de grandes quantités d'objets non-statiques et pour lesquels le DOD fait des merveilles.
  
