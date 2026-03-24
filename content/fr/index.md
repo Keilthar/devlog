@@ -1,6 +1,9 @@
 ---
 title: Articles (FR)
 ---
+<style>
+    p, li, div { text-align: justify; }
+</style>
 
 <!-- Tip -->
 <div style = "display: flex; justify-content: center; align-items: center;">

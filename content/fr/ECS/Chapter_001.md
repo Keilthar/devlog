@@ -23,11 +23,11 @@ title: 💡 1 - ECS, le pourquoi
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
 
-*Je vais ici parler dans un contexte **Game Dev**, mais fondamentalement, c'est un sujet qui est transverse au métaverse (ouai j'ose le mot 😏) du développement : **<span style="color: lightskyblue;">l'orienté Object</span> VS <span style="color: lightskyblue;">l'orienté Data</span>**.*
+*Je vais ici parler dans un contexte **Game Dev**, mais fondamentalement, c'est un sujet qui est transverse au métaverse (ouai j'ose le mot 😏) du développement : **<span style="color: steelblue;">l'orienté Object</span> VS <span style="color: steelblue;">l'orienté Data</span>**.*
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
 
-**Aux origines de la galère : le <span style="color: lightskyblue;">OOP</span> !**
+**Aux origines de la galère : le <span style="color: steelblue;">OOP</span> !**
 
 Le **OOP (Object Oriented Programming)** dispose de cette incroyable force qu'il épouse à merveille les prédispositions de nos cerveaux mollassons :
 - on **découpe nos concepts métier en objets**
@@ -40,9 +40,9 @@ Dans le cadre du jeu vidéo, cette approche est trèèèèèès attrayante. Parc
 je veux créer plusieurs ennemis distincts qui attaquent mon joueur ? Hop, une instance d'objet par ennemi, chacun avec ses propres points de vie, son propre attack pattern, sa propre reconnaissance du terrain... et potentiellement, résultante de tout ça : un comportement unique par ennemi !
 
 Tous les gros moteurs de jeux ont donc adopté cette approche dans leur design de base et dans le choix du langage adossé :
-- <span style="color: lightskyblue;">Unreal Engine</span> avec le <span style="color: lightskyblue;">C++</span>
-- <span style="color: lightskyblue;">Unity</span> avec le <span style="color: lightskyblue;">C#</span>
-- <span style="color: lightskyblue;">Godot</span> avec le <span style="color: lightskyblue;">C#</span> et son langage dédié le <span style="color: lightskyblue;">GDScript</span> (qui est une variante intéressante, plus modulaire autour d'un concept de composition/noeud).
+- <span style="color: steelblue;">Unreal Engine</span> avec le <span style="color: steelblue;">C++</span>
+- <span style="color: steelblue;">Unity</span> avec le <span style="color: steelblue;">C#</span>
+- <span style="color: steelblue;">Godot</span> avec le <span style="color: steelblue;">C#</span> et son langage dédié le <span style="color: steelblue;">GDScript</span> (qui est une variante intéressante, plus modulaire autour d'un concept de composition/noeud).
 
 Mais tout aussi **flexible** et **adapté** qu'est le POO pour le **game design**, il a un problème majeur : il **scale** très mal. A vouloir regrouper au sein d'un même objet à la fois les données et ses traitements, par design les objets deviennent des éléments extrêmement **volatiles** dont on ne sait à l'avance, ni ce qu'ils vont faire, ni la taille mémoire qu'ils vont occuper.
 
@@ -66,7 +66,7 @@ Or les accès mémoires, c'est le coeur de la performance et ce scan incessant p
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
 
-**Le saint sauveur : le <span style="color: lightskyblue;">DOD</span> !**
+**Le saint sauveur : le <span style="color: steelblue;">DOD</span> !**
 
 L'**ECS** (Entity Component System) est une architecture qui rentre dans le paradigme du **DOD** (Data Oriented Design). Dans le cadre de **Unity**, c'est même très clair, on parle de **DOTS** (Data Oriented Technology Stack). *Promis je m'arrête là avec les acronymes des enfers infernaux.* 😚
 
@@ -88,11 +88,11 @@ L'essence de l'ECS : ne plus organiser le code autour d'une logique fonctionnell
 
 
 Son design en soi est relativement simple :
-- on remplace le concept d'objet par celui d'**<span style="color: lightskyblue;">entity</span>**, qui n'est qu'un identifiant unique.
-- à cette entité, on va lier des **<span style="color: lightskyblue;">components</span>**, qui ne sont que des conteneurs de données (des *structs*)
-- on regroupe les entités qui disposent des mêmes composants dans des **<span style="color: lightskyblue;">archetypes</span>** : toutes les entités appartenant à un même archétype sont rangées de manière contiguë en mémoire
-- on peut alors **<span style="color: lightskyblue;">query</span>** des groupes d'entités en filtrant par composant (comme on requêterait une base de données)
-- au travers de **<span style="color: lightskyblue;">systems</span>** centralisés, on traitera la donnée requêtée en masse via un découpage en **<span style="color: lightskyblue;">chunks</span>** et une répartition sur du **<span style="color: lightskyblue;">multi-threading</span>**
+- on remplace le concept d'objet par celui d'**<span style="color: steelblue;">entity</span>**, qui n'est qu'un identifiant unique.
+- à cette entité, on va lier des **<span style="color: steelblue;">components</span>**, qui ne sont que des conteneurs de données (des *structs*)
+- on regroupe les entités qui disposent des mêmes composants dans des **<span style="color: steelblue;">archetypes</span>** : toutes les entités appartenant à un même archétype sont rangées de manière contiguë en mémoire
+- on peut alors **<span style="color: steelblue;">query</span>** des groupes d'entités en filtrant par composant (comme on requêterait une base de données)
+- au travers de **<span style="color: steelblue;">systems</span>** centralisés, on traitera la donnée requêtée en masse via un découpage en **<span style="color: steelblue;">chunks</span>** et une répartition sur du **<span style="color: steelblue;">multi-threading</span>**
 
 <img src="/static/png/ECS/Unity_ECS_Concept.png" alt="Concept ECS Unity" width="100%"/>
 
