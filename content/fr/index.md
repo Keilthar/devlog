@@ -53,7 +53,7 @@ Je vais donc déblatérer sur plein de sujets :
 
 Sur ce **devlog**, vous trouverez 3 grands types de contenus :
 - des 📖 **<span style="color: steelblue;">tutos</span>** d'implémentations
-- de la 🔭 **<span style="color: steelblue;">vulgarisation</span>** sur le **game dev** (et parfois sur de la **tech** plus généraliste)
+- de la 💡 **<span style="color: steelblue;">vulgarisation</span>** sur le **game dev** (et parfois sur de la **tech** plus généraliste)
 - des ✏️ **<span style="color: steelblue;">billets de réflexion</span>** (être ou ne pas être game dev ? telle est la question ! 🤔)
 
 Bref si vous vous intéressez au **game dev**, moyen que je parle d'un sujet qui vous intéresse à un moment ou un autre. Et si c'est le cas, bienvenue à bord !
