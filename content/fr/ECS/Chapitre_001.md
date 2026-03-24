@@ -77,7 +77,12 @@ L'**ECS** (Entity Component System) est une architecture qui rentre dans le para
 
 L'ECS en soi n'est pas un concept nouveau. Si j'en crois <a href="https://en.wikipedia.org/wiki/Entity_component_system" target="_blank">Wikipédia</a>, la 1ère version d'une architecture similaire à l'ECS dans un jeu commercial remonte à **Thief : The Dark Project en 1998**.
 
-L'essence de l'ECS : ne plus organiser le code autour d'une logique fonctionnelle, mais d'une logique qui vise à optimiser l'agencement de la donnée, aussi sommairement nommé le <a href="https://fr.wikipedia.org/wiki/Principe_de_localit%C3%A9_(informatique)" target="_blank">principe de localité</a>.
+**-Digression-** Jeu extraordinaire au passage, auquel j'ai eu la chance de pouvoir jouer dans mon enfance
+(attention vos rétines : <a href="https://www.youtube.com/watch?v=hHWYCfuPQHM" target="_blank">trailers d'époque</a>).
+
+Il disposait d'une quantité impressionnante d'objets interagissables et dotés de physique, qu'on pouvait lancer pour faire du bruit, faire bouger d'autres objets, assommer des gardes etc etc... en vue de commettre le vol parfait sans aucun mort. Une référence en terme d'infiltration.
+**-Fin de digression-**
+
 </div>
     <div style="display: flex; justify-content: center; align-items: center; flex: 1;">
             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b6/Thief_The_Dark_Project_boxcover.jpg/250px-Thief_The_Dark_Project_boxcover.jpg" alt="Thief: The Dark Project - Trailer" />
@@ -85,7 +90,7 @@ L'essence de l'ECS : ne plus organiser le code autour d'une logique fonctionnell
 
 </div>
 
-
+L'essence de l'ECS : ne plus organiser le code autour d'une logique fonctionnelle, mais d'une logique qui vise à optimiser l'agencement de la donnée, aussi sommairement nommé le <a href="https://fr.wikipedia.org/wiki/Principe_de_localit%C3%A9_(informatique)" target="_blank">principe de localité</a>.
 
 Son design en soi est relativement simple :
 - on remplace le concept d'objet par celui d'**<span style="color: steelblue;">entity</span>**, qui n'est qu'un identifiant unique.
@@ -104,9 +109,9 @@ Son design en soi est relativement simple :
         </div>
         <div>
             <span>
-En OOP, on aurait ici eu un personnage qui porterait une position, une direction et une vitesse ainsi qu'une méthode Move() qui s'exécutrait à chaque frame.
+En OOP, on aurait ici eu un personnage qui porterait une position, une direction et une vitesse ainsi qu'une méthode Move() qui s'exécuterait à chaque frame.
 
-En ECS, on crée 3 composants de données, lié entre eux par l'ID unique d'une entité. Ensuite un système isolé va requêter toutes les entités qui disposent de la combinaison de ces 3 composants (qu'ils appartiennent ou non au même archétype, seule la combinaison de composants importe) et va traiter le calcul du mouvement en parallèle.</span>
+En ECS, on crée 3 composants de données, liés entre eux par l'ID unique d'une entité. Ensuite un système isolé va requêter toutes les entités qui disposent de la combinaison de ces 3 composants (qu'ils appartiennent ou non au même archétype, seule la combinaison de composants importe) et va traiter le calcul du mouvement en parallèle.</span>
         </div>
     </blockquote>
 </div>
@@ -185,7 +190,7 @@ Mais vous remarquerez que cette liste est plutôt restreinte et qu'on n'utilise 
 
 Il est un piège dans lequel il ne faut pas tomber : **la performance pour la performance**, ce bon vieux over-engineering ! (et bon sang que c'est dur de ne pas tomber dans ce piège quand on fait de l'ingénierie...).
 
-S'il est vrai que <span style="color: orange;">-- La flexibilité est un compromis de performance --</span>, l'inverse est tout aussi vrai <span style="color: orange;">-- La performance est un compromis de flexibilité --</span>. Hors la **flexibilité** est l'un des coeurs de la **productivité**.
+S'il est vrai que <span style="color: orange;">-- La flexibilité est un compromis de performance --</span>, l'inverse est tout aussi vrai <span style="color: orange;">-- La performance est un compromis de flexibilité --</span>. Or la **flexibilité** est l'un des coeurs de la **productivité**.
 
 **La performance n'est que rarement un objectif** en soi (à part si vous vous appelez Google/Amazon et que vous devez répondre à des milliards de requêtes utilisateurs à la seconde). Non elle est surtout un **pré-requis minimal d'acceptation de l'utilisateur** :
 - si la performance est trop dégradée, l'expérience utilisateur le sera aussi et il partira
@@ -197,11 +202,11 @@ L'ECS étant une réponse de performance, il est par nature **plus complexe et p
 
 L'industrie a choisi comme toujours l'approche la plus pragmatique : l'**hybride**. Savoir choisir ce qui mérite une approche ECS pour la performance VS choisir l'approche OOP quand le fonctionnel et l'itération priment. L'approche ECS est par exemple inutile dans la plupart des jeux avec des scènes restreintes, qui compose l'immense majorité de nos catalogues. Au contraire, la moindre simulation de masse gagnera massivement à l'implementer.
 
-Mais si l'industrie a longtemps du traité l'ECS et l'OOP comme deux mondes séparés, une nouvelle voie s'ouvre peut-être. A la  <a href="https://youtu.be/BtObK0arD_M" target="_blank">GDC de mars 2026</a>, **Unity** a décidé de taper fort : pourquoi ne pas **fusionner** les 2 approches ?
+Mais si l'industrie a longtemps dû traiter l'ECS et l'OOP comme deux mondes séparés, une nouvelle voie s'ouvre peut-être. A la  <a href="https://youtu.be/BtObK0arD_M" target="_blank">GDC de mars 2026</a>, **Unity** a décidé de taper fort : pourquoi ne pas **fusionner** les 2 approches ?
 
 <img src="https://pbs.twimg.com/media/HCq5KsqaUAcM-dR?format=jpg&name=large" alt="GDC Unity 2026" width="100%"/>
 
-L'ECS deviendrait un package core du moteur (et non plus un add-on à installer), à la manière d'un [**Bevy**](https://bevy.org/). Les entités deviendront alors le backend de tout le moteur, mais pour autant les GameObjects ne disparaissent pas : ils deviennent une couche de confort par dessus les entités, le moteur prennant la main pour faire la conversion. La force du design OOP par dessus, la puissance de l'ECS en dessous.
+L'ECS deviendrait un package core du moteur (et non plus un add-on à installer), à la manière d'un [**Bevy**](https://bevy.org/) (un moteur de jeu en Rust nativement ECS). Les entités deviendront alors le backend de tout le moteur, mais pour autant les GameObjects ne disparaissent pas : ils deviennent une couche de confort par dessus les entités, le moteur prenant la main pour faire la conversion. La force du design OOP par dessus, la puissance de l'ECS en dessous.
 <span style="color: orange;">-- L'ECS ne sera plus un choix, mais le socle. Le GameObject ne sera plus une alternative, mais une interface. --</span>
 
 En d'autres termes, l'approche hybride dont je parlais plus haut ne sera plus un compromis d'architecture, mais le mode de fonctionnement par défaut du moteur. Vous voulez du prototypage rapide ? Vous restez au niveau GameObject. Vous voulez de la performance brute ? Le moteur vous permettra de basculer votre architecture en GameObjects vers de l'ECS et ainsi profiter de ses options. Même données, même moteur, mais deux mondes en un.
