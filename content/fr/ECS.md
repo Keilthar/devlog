@@ -126,7 +126,7 @@ En d'autres termes, l'approche hybride dont je parlais plus haut ne sera plus un
 Et je vous avoue que j'ai très hâte que ce nouveau paradigme prenne forme. 😎
 
 <iframe width="560" height="315"
-src="https://www.youtube.com/watch?v=0I6OhoC8gsQ" 
+src="https://www.youtube.com/embed/0I6OhoC8gsQ" 
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 allowfullscreen></iframe>
