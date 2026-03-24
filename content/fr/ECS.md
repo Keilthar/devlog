@@ -207,3 +207,20 @@ L'ECS deviendrait un package core du moteur (et non plus un add-on à installer)
 En d'autres termes, l'approche hybride dont je parlais plus haut ne sera plus un compromis d'architecture, mais le mode de fonctionnement par défaut du moteur. Vous voulez du prototypage rapide ? Vous restez au niveau GameObject. Vous voulez de la performance brute ? Le moteur vous permettra de basculer votre architecture en GameObjects vers de l'ECS et ainsi profiter de ses options. Même données, même moteur, mais deux mondes en un.
 
 Et je vous avoue que je suis très curieux de voir le résultat. 👀
+
+<script src="https://giscus.app/client.js"
+        data-repo="Keilthar/devlog"
+        data-repo-id="R_kgDORm6DmQ"
+        data-category="General"
+        data-category-id="DIC_kwDORm6Dmc4C5K9i"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark"
+        data-lang="fr"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
