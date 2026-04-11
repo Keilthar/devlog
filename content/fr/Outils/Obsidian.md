@@ -106,7 +106,7 @@ Il contient :
         </div>
         <div style="display: flex; gap: 20px; align-items: center;">  
             <div style="display: flex; justify-content: center; align-items: center; flex: 1;">
-                    <img src="/static/gifs/smart.gif" alt="Smart" width="100%"/>
+                    <img src="/static/Gifs/smart.gif" alt="Smart" width="100%"/>
             </div>
             <div style="flex: 1;">
                 <span>
@@ -141,7 +141,7 @@ Exemple pour mon setup, 1 `CLAUDE.md` et 2 fichiers `SKILL.md` minimalistes :
 
 <img src="/static/png/Obsidian/AI_MDs.png" alt="Kanban Interne" width="100%"/>  
 
-*J'ai l'exact même setup pour Codex avec un `AGENTS.md` : j'ai donc simplement à changer l'information dans un <span style="color: steelblue;">point d'entrée</span> et mes 2 IAs seront alignées, pas besoin de dupliquer l'info dans chaque fichier de config d'IA !*
+*J'ai l'exact même setup pour Codex avec un `AGENTS.md` et les mêmes 2 `SKILL.md`. j'ai donc simplement à changer l'information dans un <span style="color: steelblue;">point d'entrée</span> et mes 2 IAs seront alignées. Plus besoin de dupliquer des .mds dans leurs arborescences respectives !*
 
 A quoi me servent
 
