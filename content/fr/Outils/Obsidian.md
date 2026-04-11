@@ -75,11 +75,11 @@ Voici comment j'ai architecturé mon vault Obsidian :
 
 **<span style="color: pink;">/AI/Generic</span>** : ensemble des procédures utilisées par l'IA. Ce dossier est **agnostique**, indépendant du projet concerné et de l'IA qui va s'en servir.
 Il contient :
-- des skills (exemple : **<span style="color: pink;">/SuperPowers</span>**)
-- des conventions de codes (exemple : **<span style="color: pink;">/Unity</span>**)
 - les process pour interagir avec **<span style="color: pink;">/Obsidian</span>** et **<span style="color: pink;">/Git</span>**
+- mes skills (exemple : **<span style="color: pink;">/SuperPowers</span>**)
+- mes conventions de codes (exemple : **<span style="color: pink;">/Unity</span>**)
 
-`Project_Management_Workflow.md` est le <span style="color: steelblue;">point d'entrée</span> du répertoire : il décrit à l'IA comment utiliser la documentation dans ces répertoires.
+`Project_Management_Workflow.md` est le <span style="color: steelblue;">point d'entrée</span> du répertoire : il décrit à l'IA comment/quand utiliser la documentation dans ces répertoires.
 
 
 **<span style="color: pink;">/AI/Project</span>** : contient des éléments indicatifs spécifiques au projet pour donner du contexte à l'IA.
@@ -93,9 +93,8 @@ Il contient :
 - 2 fichiers `base`, <span style="color: orange;">Documentation - Project</span> et <span style="color: orange;">Kanban - Project</span> : ce sont des **Kanbans globaux** qui listent respectivement toute la doc et tous les tickets existants dans le vault Obsidian
 
 ---
-**<span style="color: gold;">- Templates</span>**
 
-Templates utilisés par l'IA pour ajouter de nouveaux domaines avec toute l'architecture qui va bien et à créer des tickets Kanban normalisés.
+**<span style="color: gold;">- Templates</span>** : templates utilisés par l'IA pour ajouter de nouveaux domaines avec toute l'arborescence et à créer des tickets Kanban normalisés.
     </div>
 </div>
 
