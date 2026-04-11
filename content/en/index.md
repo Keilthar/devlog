@@ -20,6 +20,8 @@ title: Articles (EN)
     </blockquote>
 </div>
 
+<p style="text-align: center;"><a href="./index.xml">🔊 Subscribe via RSS</a></p>
+
 **Who am I?**
 
 The short and boring answer: nobody! 😜
@@ -56,7 +58,7 @@ I'll be rambling about all sorts of topics:
 
 On this **devlog**, you'll find 3 main types of content:
 - 📖 implementation **<span style="color: steelblue;">tutorials</span>**
-- 🔭 **<span style="color: steelblue;">vulgarization</span>** about **game dev** (and sometimes about more general **tech** topics)
+- 💡 **<span style="color: steelblue;">vulgarization</span>** about **game dev** (and sometimes about more general **tech** topics)
 - ✏️ **<span style="color: steelblue;">opinion pieces</span>** (to be or not to be a game dev? that is the question! 🤔)
 
 In short, if you're interested in **game dev**, chances are I'll cover a topic that catches your eye sooner or later. And if so, welcome aboard!

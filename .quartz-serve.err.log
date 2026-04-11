@@ -1,0 +1,29 @@
+
+<--- Last few GCs --->
+
+[82576:000001B1E8706000]   334057 ms: Scavenge (interleaved) 8134.8 (8196.1) -> 8132.7 (8196.8) MB, pooled: 0 MB, 18.94 / 0.00 ms  (average mu = 0.223, current mu = 0.228) task; 
+[82576:000001B1E8706000]   337120 ms: Mark-Compact 8135.4 (8196.8) -> 8133.2 (8197.8) MB, pooled: 0 MB, 3048.27 / 0.00 ms  (average mu = 0.161, current mu = 0.094) task; scavenge might not succeed
+
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 00007FF6763FC36F node::OnFatalError+1343
+ 2: 00007FF677044D77 v8::Function::NewInstance+423
+ 3: 00007FF676E45467 v8::base::AddressSpaceReservation::AddressSpaceReservation+322071
+ 4: 00007FF676E49174 v8::base::AddressSpaceReservation::AddressSpaceReservation+337700
+ 5: 00007FF676E5810C v8::internal::StrongRootAllocatorBase::deallocate_impl+16604
+ 6: 00007FF676E5794B v8::internal::StrongRootAllocatorBase::deallocate_impl+14619
+ 7: 00007FF6782DDAED v8::base::UnsignedDivisionByConstant<unsigned __int64>+2791421
+ 8: 00007FF676E42F30 v8::base::AddressSpaceReservation::AddressSpaceReservation+312544
+ 9: 00007FF676DF38E2 EVP_PKEY_asn1_set_get_priv_key+86258
+10: 00007FF67634F0CA node::GetNodeReport+99354
+11: 00007FF67634D8B0 node::GetNodeReport+93184
+12: 00007FF6770AC70B uv_run+1867
+13: 00007FF6770AC27F uv_run+703
+14: 00007FF67650EBCF node::DecodeWrite+351
+15: 00007FF67638B416 node::MultiIsolatePlatform::DisposeIsolate+244262
+16: 00007FF67645718C node::Start+1052
+17: 00007FF677473F82 AES_cbc_encrypt+2546
+18: 00007FF6782E71F4 v8::base::UnsignedDivisionByConstant<unsigned __int64>+2830084
+19: 00007FF936BCE8D7 BaseThreadInitThunk+23
+20: 00007FF93760C48C RtlUserThreadStart+44

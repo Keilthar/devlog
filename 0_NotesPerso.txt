@@ -1,5 +1,0 @@
-Commandes :
-npx quartz sync
-	|-> push sur GitHub pages
-npx quartz build --serve
-	|-> monte le service sur le localhost (ctrl+c pour stop)

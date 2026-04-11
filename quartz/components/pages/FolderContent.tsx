@@ -9,6 +9,7 @@ import { QuartzPluginData } from "../../plugins/vfile"
 import { ComponentChildren } from "preact"
 import { concatenateResources } from "../../util/resources"
 import { trieFromAllFiles } from "../../util/ctx"
+import { isDiscoverablePage } from "../../util/visibility"
 
 interface FolderContentOptions {
   /**
@@ -41,6 +42,9 @@ export default ((opts?: Partial<FolderContentOptions>) => {
         .map((node) => {
           // regular file, proceed
           if (node.data) {
+            if (!isDiscoverablePage(node.data)) {
+              return undefined
+            }
             return node.data
           }
 
