@@ -133,11 +133,17 @@ Mais comme on a quand même besoin d'un Kanban global pour le suivi d'un MVP par
 
 ----
 
-Côté IA :
-- `CLAUDE.md` et `AGENTS.md` seront quasi vierges et redirigeront directement vers ces <span style="color: steelblue;">2 points d'entrée</span>
-- il en ira de même pour leurs skills qui pointent directement vers des fichiers dans /Generic
+**Setup IA**
 
+Comme je l'ai déjà mentioné, le stetup se veut le plus **agnostique** et **centralisé** que possible. L'idée est donc que les fichiers des IA ne portent aucune responsabilité et pointent simplement vers des <span style="color: steelblue;">points d'entrée</span> dans **Obsidian** et vous n'aurez ensuite plus jamais besoin de les retoucher.
 
+Exemple pour mon setup, 1 `CLAUDE.md` et 2 fichiers `SKILL.md` minimalistes :
+
+<img src="/static/png/Obsidian/AI_MDs.png" alt="Kanban Interne" width="100%"/>  
+
+*J'ai l'exact même setup pour Codex avec un `AGENTS.md` : j'ai donc simplement à changer l'information dans un <span style="color: steelblue;">point d'entrée</span> et mes 2 IAs seront alignées, pas besoin de dupliquer l'info dans chaque fichier de config d'IA !*
+
+A quoi me servent
 
 <script src="https://giscus.app/client.js"
         data-repo="Keilthar/devlog"
