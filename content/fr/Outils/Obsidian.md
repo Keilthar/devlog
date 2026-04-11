@@ -1,6 +1,6 @@
----
+﻿---
 title: 📖 Gestion de projet - Obsidian
-hidden: true
+hidden: false
 ---
 
 <style>
@@ -17,134 +17,79 @@ hidden: true
         <div class="callout-content">
             <div class="callout-content-inner">
                 <img src="/static/png/Kanban_System.webp" alt="Unity ECS" width="100%"/>
-            </div>       
+            </div>
         </div>
     </blockquote>
 </div>
 
 ---
 
-**Introduction**
+🌈 **Le produit miracle est arrivé ! (non)**
 
-Ha le suivi de projets, les tickets, la documentation et la synchronisation Git... une grande passion qui anime tout les développeurs et développeuses de ce monde.
-C'est une certaine définition de l'enfer que d'essayer d'avoir une industrialisation de tout ça (on te déteste tous **Jira**).
+Ah, le suivi de projet, les tickets, la documentation et la synchronisation Git... une grande passion qui anime tous les développeurs et développeuses de ce monde.
+C'est une certaine définition de l'enfer que d'essayer d'industrialiser tout ça (on te déteste tous, **Jira** 😠).
 
-Sauf qu'on a eu un nouvel arrivant dans le game : <span style="color: steelblue;">l'IA</span>. Alors si j'ai encore quelques doutes sur la future fin du métier de développeur et l'avènement du vide-coding, y a un truc sur lequel l'IA est vachement bonne : l'application de **patterns** et la gestion de fichiers <span style="color: steelblue;">markdown</span> (`.md` pour les intimes).
+Sauf qu'on a eu un nouvel arrivant dans le game : <span style="color: steelblue;">l'IA</span>. Alors si j'ai encore quelques doutes sur la future fin du métier de développeur et l'avènement du vide-coding, il y a un truc sur lequel l'IA est vachement bonne : l'application de **patterns** et la gestion de fichiers <span style="color: steelblue;">markdown</span> (`.md` pour les intimes).
 
-Et vous savez quoi ? Bah y a un outil de gestion de notes qui gère tout avec des markdowns : <a href="https://obsidian.md" target="_blank">Obsidian</a>. Je m'en servais déjà depuis 1 an pour gérer des notes personnelles et créer des schémas Excalidraw pour mon jeu. Début 2026, j'ai eu une illumination et je me suis dis qu'il y aurait moyen d'entièrement automatiser le process de gestion de projet en combinant Obsidian à une IA.
+Et vous savez quoi ? Il y a justement un outil de gestion de notes qui gère tout avec des fichiers Markdown : <a href="https://obsidian.md" target="_blank">Obsidian</a>. Son truc, c'est de centraliser des notes `.md`, au travers des metadata de leur frontmatter, ce qui permet de générer des vues et des représentations de type Kanban.
+
+Début 2026, j'ai eu une illumination et je me suis dit qu'il y avait moyen d'entièrement automatiser le processus de gestion de projet en combinant **Obsidian pour le frontend et l'IA pour le backend** (mon cœur d'ingénieur qui saigne fort à l'écriture de cette phrase... 😭).
 
 Ce que je vais vous présenter ici, c'est donc un **processus de gestion de projet via Obsidian, centralisé dans la codebase et automatisé par IA** (applicable au game dev ou non) :
-- une <span style="color: steelblue;">centralisation documentataire</span> (spécifications fonctionnelles / techniques, dossier d'architecture / exploitation, schémas Excalidraw et Mermaids, dossiers de références de design...)
-- une <span style="color: steelblue;">centralisation des skills IA</span> (qui deviennent agnostique de votre provider)
-- un <span style="color: steelblue;">workflow Kanban automatisé</span> (vous ne toucherez jamais au kanban et aux tickets vous même, tout est fait par l'IA)
-- un <span style="color: steelblue;">alignement</span> de la rédaction des <span style="color: steelblue;">commits GIT</span> sur le <span style="color: steelblue;">ticket Kanban</span> associé
-- un <span style="color: steelblue;">suivi de projet intégré au code</span> : quand vous faites un commit, tout est sauvegardé dans le même repo, pas juste le code
-
-Les limites de mon implémentation :
-- je n'ai **pas** designé de garde-fou pour des **utilisateurs en parallèle** (même si je pense que c'est possible)
-- se retenir absolument de mettre nos mains pateuses d'humain dans le process et **passer par l'IA systématiquement** (elle est dure celle là...)
-- un coût d'entrée qui peut être long (dépendra de vos exigences) : il faudra adapter les procédures `.md` pour gérer la chaine selon votre façon de travailler (je vous fournirais en exemple les miens comme base de travail)
-
-Ca fait plusieurs mois que je m'en sers, ça m'a demandé pas mal de rafinement du process mais j'en suis extrêmement satisfait désormais. Et je vous recommande de faire l'effort initial, c'est un investissement sur le long terme que vous ne regretterez pas puisqu'**entièrement transposable d'un projet à un autre** une fois setup.
+- une <span style="color: steelblue;">centralisation documentataire</span> (spécifications fonctionnelles / techniques, dossier d'architecture / exploitation, schémas Excalidraw et Mermaid, dossiers de références de design...)
+- une <span style="color: steelblue;">centralisation des skills IA</span>, qui deviennent agnostiques vis-à-vis de votre provider une fois le setup fait, avec une réplication automatisée de skills minimalistes à tous les clients IA présents dans le projet
+- un <span style="color: steelblue;">workflow Kanban automatisé</span>, géré au travers de la discussion avec l'IA
+- une <span style="color: steelblue;">synchronisation</span> de la rédaction des <span style="color: steelblue;">commits Git</span> avec le <span style="color: steelblue;">ticket Kanban</span> associé
+- un <span style="color: steelblue;">suivi de projet intégré au code</span> : chaque partie d'une feature livrée est commitée ensemble (doc, tickets et code)
 
 ---
-
-**1 - Installation**
-
-A télécharger : 
-- le logiciel Obsidian : https://obsidian.md
-- ma config : https://github.com/Keilthar/Obsidian-Workflow
-- votre IA coding (mon setup marche avec Claude Sonnet/Opus 4.5 et Codex GPT 5.3)
-
-Ensuite 2 cas, votre projet est-il vierge de configurations IA (`CLAUDE.md`, `AGENTS.md` et/ou répertoires de skills) ?
-1. OUI :
-   - vous déposez tout le contenu du git à la racine de votre projet
-2. NON :
-   - vous déposez le répertoire `/Obsidian` à la racine de votre projet
-   - vous déposer les 2 skills `project-management` / `superpowers` dans le sous-répertoire `/skills` de votre IA
-(si vous avez déjà `superpowers`, ce skill ne rentre pas en conflit, c'est un simple wrapper qui regroupe en 1 commande tous les sous-skills stockés dans `/Obsidian`)
-   - vous ajoutez le contenu de `CLAUDE.md` ou `AGENTS.md` (ils sont identiques) dans l'existant.
-
-Ensuite vous ouvrez <span style="color: steelblue;">Obsidian</span>, vous ouvrez le répertoire `/Obsidian` en tant que coffre et ça vous demandera si vous me faîtes confiance (et je vous lâche mon meilleur : **trust me bro**).
-
-Installation terminée.
-
----
-
-**2 - Utilisation**
-
-Vous avez un <span style="color: steelblue;">Example - Network</span> pour vous montrer la structure, je vous laisse le parcourir (spoiler : il est rigolo). Vous pouvez **supprimer ce répertoire** une fois que nous n'en avez plus besoin.
-
 <div style="display: flex; gap: 20px; align-items: center;">
-    <div style="display: flex; justify-content: center; align-items: center; flex: 1;">
-            <img src="/static/png/Obsidian/Example_Network.png" alt="Worktree Obsidian" width="100%"/>
+    <div>
+            <img src="/static/png/Obsidian/Kanban_Interne.png" alt="Kanban Interne" width="100%"/>
+            <div style="display: flex; justify-content: center; align-items: center; flex: 1;"><span>Kanban par domaine fonctionnel, manipulé par IA</span></div>
     </div>
-    <div style="flex: 1;">
-Dans <span style="color: orange;">Domains</span> vous trouverez toute la structure de gestion du projet.
-
-Un domaine représente un périmètre fonctionnel de l'application (un bloc de travail métier). Vous pourrez donc créer autant de domaines que vous le souhaiter (ou juste un seul si vous n'aimez pas le concept).
-
-Chaque domaine contient :
-
-- sa documentation
-- ses tickets par phase
-- un kanban dédié
-- un fichier `info.md` qui permet à l'IA d'incrémenter les tickets avec un ID unique
-
-Sous les dossiers domaines, vous avez 2 fichiers <span style="color: steelblue;">BASE</span>, qui sont des **kanbans globaux** gérés par <span style="color: steelblue;">Obsidian</span> (l'IA n'intervient pas dessus) :
-- `Documentation - Project` liste toute la documentation existante
-- `Kanban - Project` liste tous les tickets existants
-
-Ils permettent de faire le suivi global du projet.
+    <div>
+        <img src="/static/png/Obsidian/Kanban_Base.png" alt="Kanban Base" width="100%"/>
+        <div style="display: flex; justify-content: center; align-items: center; flex: 1;"><span>Kanban global, synchronisé par metadata Obsidian</span></div>
     </div>
 </div>
 
 ---
+Le concept vous intéresse ? Je vous renvoie vers la page GitHub pour les **processus d'installation et d'utilisation** : https://github.com/Keilthar/Obsidian-Workflow
 
-<div style="display: flex; gap: 20px; align-items: center;">  
-    <div>
-            <img src="/static/png/Obsidian/Kanban_Interne.png" alt="Kanban Interne" width="100%"/>
-            <div style="display: flex; justify-content: center; align-items: center; flex: 1;"><span>Kanban par domaine, manipulé par l'IA</span></div>
-    </div>
-    <div>
-        <img src="/static/png/Obsidian/Kanban_Base.png" alt="Kanban Base" width="100%"/>
-        <div style="display: flex; justify-content: center; align-items: center; flex: 1;"><span>Kanban globale <span style="color: steelblue;">BASE</span>, synchronisé par Obsidian</span></div>
-    </div>
-</div>  
+**Mon ressenti personnel sur cet outil**
 
----
+Ça m'enlève une charge folle de gestion de l'avancement pour un projet ambitieux comme le mien. J'ai maintenant un workflow simple pour stocker une idée, puis la décomposer avec l'IA en tâches logiques, que je peux traiter au fil de l'eau sans devoir réexpliquer où on en est, ce qu'on a fait, où on va et pourquoi... ce qui est une charge mentale conséquente quand on travaille avec l'IA (le babysitting virtuel 🍼).
 
-Globalement l'utilisation est très simple, vous pouvez demander à l'IA :
-1. de <span style="color: steelblue;">créer un domaine</span> :
-   - elle vous demandera son nom et un préfixe de 3-4 lettres qui identifie les tickets qui lui sont liés (exemple Domaine Network -> préfixe NTW -> tickets NTW001, NTW002...)
-   - elle vous créera toute l'arborescence à partir du template
-2. de <span style="color: steelblue;">créer un nouveau ticket</span>, elle vous demandera la phase dans laquelle le placer (`Unplanned` ou `Planned`)
-   - `Unplanned` : permet de référencer des idées, sans convention stricte sur le format du ticket
-   - `Planned` : suit un process ticket strict, avec un identifiant unique du ticket, une description, un sommaire et une liste de tâches. Vous avez aussi la possibilité de lier le ticket à des <span style="color: steelblue;">related-domaine</span>, de gérer des notions de <span style="color: steelblue;">features</span> et de l'associer à un <span style="color: steelblue;">MVP</span> (notions que vous retrouverez dans le Kanban général <span style="color: steelblue;">BASE</span>)
-3. de <span style="color: steelblue;">gérer un ticket existant</span> :
-    - elle vous demandera son ID
-    - elle pourra l'alimenter à votre demande, par exemple en résumant à l'intérieur les actions définies pendant un `/plan` ou un `brainstorm` de <span style="color: steelblue;">SuperPowers</span>
-    - elle gèrera les changements de phases
-4. de faire un <span style="color: steelblue;">GIT commit lié à un ticket</span>
-    - le commit portera par défaut l'ID du ticket et un titre court dans son nom
-    - elle récupèrera automatiquement le contenu du ticket et l'injectera dans la description du commit
-    - vous pouvez faire des commits intermédiaires (ticket pas encore entièrement traité), elle suivra le même process, vous aurez juste des tâches non validées dans la description
+J'y gagne aussi une documentation fiable (que je ne lis absolument pas, l'IA me la résume 😌... un autre sujet qui serait d'ailleurs fort intéressant à philosopher : a-t-on encore besoin de docs dédiées aux humains ?).
 
-Quelques règles simples :
-- vous pouvez éditer les informations du ticket vous même
-- ne touchez pas aux metadatas du ticket (sinon vous risquez de sortir le ticket des Kanbans globaux <span style="color: steelblue;">BASE</span>). L'IA pourra corriger le coût ça au cas où.
-- ne faites pas de drag&drop des tickets pour les changer de phase : ça ne casse rien en soit, mais par contre, la metadata n'étant pas mise à jour par cette action, les Kanbans globaux <span style="color: steelblue;">BASE</span> ne seront pas à jour. Bouger un ticket de phase => demandez à l'IA.
-- si vous vous rendez compte que l'IA ne suit plus correctement la procédure, invoquez le skill `/project-management` pour qu'elle relise la doc
+Et un Git beaucoup plus propre, que ce soit au niveau déclaratif (titre standardisé, description complète), en termes de découpage (lots de fichiers logiques agrégés par l'IA et non plus par ma flemme monumentale) ou de récurrence (je tends lentement vers du commit plus atomique).
 
-Et voilà, rien de plus compliqué.
+**Suite du devlog**
 
-Dans la suite de l'article, je vous explique l'architecture, comment ça marche et le pourquoi du comment j'ai fais certains choix de design. Si vous voulez customiser le fonctionnement, je vous invite à y jeter un oeil sinon vous pouvez arrêter votre lecture ici. 😉
+Ici, on ne va pas s'intéresser à comment s'en servir (vous avez un beau README pour ça), mais à comment je l'ai designé, avec la logique sous-jacente et les problématiques, ainsi qu'à la manière dont je l'ai implémenté pour mon gamedev.
 
 ---
 
-**3 - Structure des répertoires**
+**L'allègement par segmentation**
 
-Voici comment j'ai architecturé mon vault Obsidian :
+<div style="display: flex; gap: 20px; align-items: center;">
+    <div style="display: flex; justify-content: center; align-items: center; flex: 1;">
+            <img src="/static/png/IndieDev_OneManArmy.jpg" alt="Worktree Obsidian" width="100%"/>
+    </div>
+    <div style="flex: 1;">
+
+Le **gamedev** a une certaine particularité : on a **des périmètres fonctionnels très distincts** à devoir gérer dans la même application.
+
+Gérer le comportement et le pathfinding des unités, ça n'a rien à voir avec la gestion des inputs du joueur pour contrôler son personnage, qui n'a rien à voir avec la gestion des assets pour générer la carte, etc., etc., etc.
+
+(et je ne vous parle même pas des sous-sections avec les besoins spécifiques par corps de métier entre dev, design 2D/3D, animation, VFX, UI/UX, sound design...)
+    </div>
+</div>
+
+Et même si certaines features peuvent être à la croisée de plusieurs périmètres fonctionnels, c'est quand même pratique de pouvoir organiser l'information par domaine. Ça a donc été l'un des principes cœur de mon design : la possibilité de **segmenter la gestion du projet** et de ne pas tout avoir dans un immense Kanban où je vais devoir filtrer parmi des dizaines de périmètres à chaque manipulation.
+
+Dans le cadre de mon jeu, la structure ressemble à ça :
 
 <div style="display: flex; gap: 20px; align-items: center;">
     <div style="display: flex; justify-content: center; align-items: center; flex: 1;">
@@ -154,26 +99,26 @@ Voici comment j'ai architecturé mon vault Obsidian :
 
 **<span style="color: pink;">/AI/Generic</span>** : ensemble des procédures utilisées par l'IA. Ce dossier est **agnostique**, indépendant du projet concerné et de l'IA qui va s'en servir.
 Il contient :
-- les process pour interagir avec **<span style="color: pink;">/Obsidian</span>** et **<span style="color: pink;">/Git</span>**
-- mes skills (exemple : **<span style="color: pink;">/SuperPowers</span>**)
-- mes conventions de codes (exemple : **<span style="color: pink;">/Unity</span>**)
+- les processus pour interagir avec **<span style="color: pink;">/Obsidian</span>** et **<span style="color: pink;">/Git</span>**
+- des skills transverses (exemple : **<span style="color: pink;">/SuperPowers</span>**)
+- mes skills perso de coding (exemple : **<span style="color: pink;">/Unity</span>**), qui mériteront un article dédié tellement ça rend le coding par IA plus agréable...
 
-`Project_Management_Workflow.md` est le <span style="color: steelblue;">point d'entrée</span> du répertoire : il décrit à l'IA comment/quand utiliser la documentation dans ces répertoires.
+`Project_Management_Workflow.md` est le <span style="color: steelblue;">point d'entrée</span> du répertoire : il décrit à l'IA comment et quand utiliser la documentation dans ces répertoires.
 
 
 **<span style="color: pink;">/AI/Project</span>** : contient des éléments indicatifs spécifiques au projet pour donner du contexte à l'IA.
 
-`Project_Description.md` est le <span style="color: steelblue;">point d'entrée</span> de ce répertoire : il contient une description générale de l'application et référencera d'autres docs au besoin (exemple `ToDo`)
+`Project_Description.md` est le <span style="color: steelblue;">point d'entrée</span> de ce répertoire : il contient une description générale du jeu et référencera d'autres docs au besoin (exemple `ToDo`)
 
 ---
 
 **<span style="color: orange;">Domains</span>** :
-- un **répertoire par domaine fonctionnel** de mon application. Chaque répertoire portera sa <span style="color: orange;">documentation</span>, un <span style="color: orange;">Kanban dédié</span> et les <span style="color: orange;">notes</span> associées aux <span style="color: orange;">tickets</span>
-- 2 fichiers `base`, <span style="color: orange;">Documentation - Project</span> et <span style="color: orange;">Kanban - Project</span> : ce sont des **Kanbans globaux** qui listent respectivement toute la doc et tous les tickets existants dans le vault Obsidian
+- un **répertoire par domaine fonctionnel** de mon jeu. Chaque répertoire porte sa <span style="color: orange;">documentation</span>, un <span style="color: orange;">Kanban dédié</span> et les <span style="color: orange;">notes</span> associées aux <span style="color: orange;">tickets</span>
+- deux fichiers `.base`, <span style="color: orange;">Documentation - Project</span> et <span style="color: orange;">Kanban - Project</span> : ce sont des **Kanbans globaux** qui listent respectivement toute la doc et tous les tickets existants dans le vault Obsidian
 
 ---
 
-**<span style="color: gold;">- Templates</span>** : templates utilisés par l'IA pour ajouter de nouveaux domaines avec toute l'arborescence et à créer des tickets Kanban normalisés.
+**<span style="color: gold;">Templates</span>** : templates utilisés par l'IA pour ajouter de nouveaux domaines avec toute l'arborescence et créer des tickets Kanban normalisés.
     </div>
 </div>
 
@@ -181,63 +126,111 @@ Il contient :
     <blockquote class="callout tip" data-callout="tip">
         <div style = "display: flex; justify-content: center; align-items: center;" class="callout-title">
             <div class="callout-icon"></div>
-            <div class="callout-title-inner"><span>Pourquoi plusieurs Kanbans dans le projet ?</span></div>
+            <div class="callout-title-inner"><span>Mini Kanbans et IA : le combo gagnant (de tokens)</span></div>
         </div>
-        <div style="display: flex; gap: 20px; align-items: center;">  
+        <div style="display: flex; gap: 20px; align-items: center;">
             <div style="display: flex; justify-content: center; align-items: center; flex: 1;">
                     <img src="/static/Gifs/smart.gif" alt="Smart" width="100%"/>
             </div>
             <div style="flex: 1;">
                 <span>
-Question de contexte et de tokens !
+Même si vous n'avez pas un besoin impérieux d'un tel découpage fonctionnel, vous y avez tout de même un intérêt économique :
 
-L'idée est d'avoir des kanbans taille réduite, que l'IA va pouvoir gérer sans exploser son contexte à parcourir des dizaines, voir centaines, de tickets à chaque interaction.
+ne pas faire exploser le contexte de l'IA en lui faisant charger un kanban unique composé de centaines de tickets (voire plus si vous faites des tickets/commits atomiques) !
 
-Mais comme on a quand même besoin d'un Kanban global pour le suivi d'un MVP par exemple, j'utilise les fichiers Kanban `base`, qui est une feature d'<span style="color: steelblue;">Obsidian</span> utilisant les metadatas dans les frontmatters des tickets (c'est à ça que sert Obsidian à la base ! Gérer des notes et des metadatas).
+Et pour un Kanban global de suivi d'un MVP ? Des fichiers <span style="color: steelblue;">BASE</span> ! C'est une feature d'agrégation d'<span style="color: steelblue;">Obsidian</span> utilisant les metadata des tickets => 0 coût IA !
                 </span>
             </div>
-        </div>      
+        </div>
     </blockquote>
 </div>
 
 ----
 
-**4 - Configuration IA**
+**Le big brain AI 🧠**
 
-Comme je l'ai déjà mentioné, le setup se veut le plus **agnostique** et **centralisé** que possible. L'idée est donc que les fichiers dans les répertoires standards des IA ne portent aucune responsabilité et pointent simplement vers des <span style="color: steelblue;">points d'entrée</span> dans <span style="color: steelblue;">Obsidian</span>. Vous n'aurez ensuite plus jamais besoin de les retoucher.
+Comme je l'ai déjà mentionné, le setup IA se veut le plus **agnostique** et **centralisé** que possible. Mais vous allez me dire : pourquoi ?
 
-Exemple pour mon setup, 1 `CLAUDE.md` et 2 fichiers `SKILL.md` minimalistes :
+Eh bien, j'ai deux problèmes majeurs :
+- le premier : quand je change une procédure et que je switch d'une IA à l'autre (au hasard Claude et Codex), je suis obligé de **dupliquer** laborieusement les procédures dans tous les sous-répertoires concernés
+- le second : j'ai des skills qui se superposent en termes de process. Par exemple, le skill `git commit` et le skill `project-management` ont tous les deux besoin d'accéder à la procédure de lecture/édition d'un ticket. Sans centralisation, je me retrouve à dupliquer la même procédure dans les deux skills. Et si je veux la changer et que j'en oublie un... kaboum 💥
 
-<img src="/static/png/Obsidian/AI_MDs.png" alt="Kanban Interne" width="100%"/>  
+L'idée est donc de créer un système à trois niveaux de responsabilités :
+- des fichiers minimalistes côté AI providers : ils ne portent aucune responsabilité fonctionnelle et ne font que consommer des points d'entrée centralisés dans le vault
+- ces points d'entrée ne vont définir qu'une logique d'enchaînement d'actions, mais pas le détail de l'action elle-même
+- des procédures détaillées par actions (`Ticket_Create`, `Ticket_Move`, `Ticket_Remove`) qui peuvent être <span style="color: orange;">consommées par plusieurs points d'entrée</span>
 
-*J'ai les exactes même fichiers pour Codex avec un `AGENTS.md` et les mêmes 2 `SKILL.md`. J'ai donc simplement à changer l'information dans un <span style="color: steelblue;">point d'entrée</span> dans <span style="color: steelblue;">Obsidian</span> et mes 2 IAs seront alignées sans aucune autre action. Plus besoin de dupliquer des `.md` dans leurs arborescences respectives !*
+<img src="/static/png/Obsidian/AI_Centralization.png" alt="Kanban Interne" width="100%"/>
 
-Ainsi non seulement <span style="color: steelblue;">Obsidian</span> héberge ma documentation projet, mais il porte aussi la data comportementale de l'IA qui le gère. Je peux donc pull mon repo GIT sur un nouveau poste et je retrouve mon IA dans mon setup projet.
+C'est littéralement du **KISS appliqué à de la gestion de projet**. Chaque acteur a un périmètre restreint :
+- l'AI provider est l'interface pour le client
+- l'entry point est l'interface pour l'AI provider
+- le process est le consommable de bout de chaîne, partageable et atomique
 
-Mieux ! Demain je crée un nouveau projet sous Unity ? Je n'ai qu'à :
-- dupliquer mon répertoire `/Obsidian`
-- supprimer les répertoires de **<span style="color: orange;">Domains</span>**
-- réécrire une description du projet 
+Côté IA, on se retrouve alors avec des fichiers d'une simplicité déconcertante : une simple liste de lecture, parfois associée à un trigger contextuel.
 
-et je suis instantanément prêt à travailler.
+<img src="/static/png/Obsidian/AI_MDs.png" alt="Kanban Interne" width="100%"/>
+
+Et donc, pour aller au bout de la démarche, j'ai créé un skill qui crée des skills minimalistes et les duplique entre tous les clients IA détectés dans le répertoire.
+
+Je ne me pose donc plus de question désormais sur la synchronisation de mes IA avec mes process : seuls comptent mes points d'entrée et les processus unitaires par action en dessous. (C'est un peu drôle d'ailleurs, c'est l'exacte même approche que ma façon d'implémenter l'ECS, c'est du **data driven project management** par essence 😍)
 
 <div style = "display: flex; justify-content: center; align-items: center;">
     <blockquote class="callout tip" data-callout="tip">
         <div style = "display: flex; justify-content: center; align-items: center;" class="callout-title">
             <div class="callout-icon"></div>
-            <div class="callout-title-inner"><span>A quoi servent les 2 skills vu qu'ils répètent un pointeur présent dans AGENTS.md et CLAUDE.md ?</span></div>
+            <div class="callout-title-inner"><span>À quoi servent les 2 skills vu qu'ils répètent un pointeur présent dans AGENTS.md et CLAUDE.md ?</span></div>
         </div>
         <div>
             <span>
- Parfois l'IA se perd dans son contexte et ne suivra plus certaines consignes, ça fait parti de leurs inconvénients intrinsèques. 
- 
- Si je constate une déviance ou après `/compact` de la discussion, je tape simplement `/project-management` ou `/superpowers` pour forcer l'IA à relire les procédures et ainsi les faire remonter dans son contexte. Avec cette technique, je peux maintenir une consistance de l'IA même dans des discussions longues.
+Parfois l'IA se perd dans son contexte et ne suit plus certaines consignes, ça fait partie de ses inconvénients intrinsèques.
+
+Si je constate une déviance ou après `/compact` de la discussion, je tape simplement `/project-management` ou `/superpowers` pour forcer l'IA à relire les procédures et ainsi les faire remonter dans son contexte. Avec cette technique, je peux maintenir une certaine cohérence de l'IA même dans des discussions longues.
             </span>
         </div>
     </blockquote>
 </div>
 
+----
 
+**La metadata, ou plutôt le metasystem AI**
+
+Techniquement parlant, le Kanban n'est qu'un support visuel dans ce process et plus du tout une interface, au sens interactif du terme. L'IA est à la fois le backend (ou plutôt les `.md` qu'elle tente de suivre) et la main invisible, pas du marché, mais du frontend.
+
+Mais on a besoin d'un liant entre les deux couches. Dans une application standard, ce liant est la base de données. Ici, la base de données, ce sont les <span style="color: steelblue;">metadata</span> (au sens littéral du terme : la donnée de la donnée).
+
+Et dans le cadre de ce combo IA et Obsidian, on a deux sources de <span style="color: steelblue;">metadata</span> :
+- les `.md` qui portent la <span style="color: steelblue;">description contextuelle des actions</span> (descriptif projet, suite logique d'actions, documentation technique et fonctionnelle...), qui sont les <span style="color: steelblue;">rails</span> permettant à l'IA de savoir pourquoi elle fait ce qu'elle fait et comment. La logique backend, en soi. Sans ça, vous finissez avec un conducteur aveugle qui suivrait les ordres vocaux d'un GPS : "tournez à gauche". Pourquoi ? Quel angle ? Quelle vitesse ? Je sais pas... boom, le mur. Et c'est pour ça que je traite les fichiers `.md` comme je traite de l'ECS, c'est le même fondement logique.
+- les <span style="color: steelblue;">frontmatters des tickets</span>, qui assurent la <span style="color: steelblue;">stabilité du système</span>. De quel état je pars ? Vers quel état je peux aller ? Et cette <span style="color: steelblue;">metadata</span> permet de faire le lien avec la représentation frontend.
+
+Et c'est rigolo, mais en soi, le frontmatter YAML, c'est juste une base de données sur fichier plat. Ici, celui de mes tickets :
+
+```yaml
+---
+ID:
+Description:
+domain:
+related_domains: []
+features: []
+status:
+mvp:
+Created:
+Done:
+---
+```
+
+Et c'est là que la surcouche Obsidian permet d'alléger le processus côté IA. Le fait de pouvoir **agréger** les notes par leur <span style="color: steelblue;">metadata</span> dans des vues, c'est ce qui fait la force du combo pour nous, utilisateurs. Je peux agréger via :
+- le plugin **Kanban** qui s'appuie sur un `.md` brut
+- la feature <a href="https://obsidian.md/help/bases" target="_blank">BASE</a> qui utilise une `IndexedDB` interne, optimisée pour de l'affichage de type listing / tableau
+- voire un script `DataviewJS`, avec son propre moteur d'indexation et une plus grande flexibilité de rendu
+
+En soi, on pourrait faire des rendus bien plus intéressants que ce que j'ai implémenté ici. Et surtout verrouiller le système, empêchant de mauvaises manipulations par l'utilisateur, voire permettre une approche collaborative avec un verrou logique par IA (même si ça n'est pas une solution parfaite).
+
+Bref, je n'ai fait ici qu'effleurer les possibilités. Ça ne reste qu'un side project monté en quelques mois pour m'aider au quotidien dans mon gamedev, qui reste ma priorité. Mais je vois un potentiel énorme comme alternative à ce genre de solution, surtout pour des projets à petite communauté, flexibles et itératifs.
+
+J'espère en tout cas que ça vous donnera envie d'utiliser <span style="color: steelblue;">Obsidian</span>, dont je n'ai que peu développé ici les capacités en tant qu'outil de gestion de notes à part entière.
+
+Sur ce, messieurs-dames, à vos tickets !
 
 <script src="https://giscus.app/client.js"
         data-repo="Keilthar/devlog"
