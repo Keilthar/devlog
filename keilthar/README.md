@@ -44,3 +44,11 @@ The site will be available on http://localhost:8080/
 ```
 
 Content will be pushed quickly, but structural changes will require several minutes to be available on https://keilthar.github.io/devlog/
+
+## VS Code
+
+- Workspace settings live in `/.vscode`.
+- Markdown snippets are available for colored inline spans:
+  - `span-color`
+  - `span-color-strong`
+- These snippets provide a choice list of common colors directly in the placeholder, which is more reliable in Markdown than waiting for CSS IntelliSense inside inline HTML attributes.

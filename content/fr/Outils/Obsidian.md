@@ -73,29 +73,27 @@ Voici comment j'ai architecturé mon vault Obsidian :
     </div>
     <div style="flex: 1;">
 
-**Répertoire - AI**
-
-**Sous-répertoire - Generic** : contient l'ensemble les procédures utilisées par l'IA. Ce dossier est **agnostique**, indépendant du projet concerné et de l'IA qui va s'en servir.
+**<span style="color: pink;">/AI/Generic</span>** : ensemble des procédures utilisées par l'IA. Ce dossier est **agnostique**, indépendant du projet concerné et de l'IA qui va s'en servir.
 Il contient :
-- les `.md` des skills (par exemple ici **SuperPowers**)
-- mes conventions de code **Unity** (normes de codes, workflow pour créer des éléments sous ECS, achitecture, gestion des dossiers...)
-- l'ensemble des process pour interagir avec **Obsidian** et **GIT**
-- `Project_Management_Workflow.md` est le <span style="color: steelblue;">point d'entrée</span> du répertoire : il décrit à l'IA comment gérer tout ces workflow
+- des skills (exemple : **<span style="color: pink;">/SuperPowers</span>**)
+- des conventions de codes (exemple : **<span style="color: pink;">/Unity</span>**)
+- les process pour interagir avec **<span style="color: pink;">/Obsidian</span>** et **<span style="color: pink;">/Git</span>**
+
+`Project_Management_Workflow.md` est le <span style="color: steelblue;">point d'entrée</span> du répertoire : il décrit à l'IA comment utiliser la documentation dans ces répertoires.
 
 
-**Sous-répertoire - Project** :
-- contient les éléments spécifiques au projet
-- `Project_Description.md` est le <span style="color: steelblue;">point d'entrée</span> de ce répertoire : il contient une description générale de l'application et référencera d'autres docs au besoin
+**<span style="color: pink;">/AI/Project</span>** : contient des éléments indicatifs spécifiques au projet pour donner du contexte à l'IA.
 
----
-
-**Répertoire - Domains** :
-- un **répertoire par domaine fonctionnel** de mon application. Chaque répertoire portera sa **documentation**, un **kanban dédié** et les **notes** associées aux **tickets**
-- 2 fichiers `base`, un pour la **documentation** et un pour les **tickets** : ce sont des **Kanbans globaux** qui listent toute la doc et tous les tickets existants dans le vault Obsidian
+`Project_Description.md` est le <span style="color: steelblue;">point d'entrée</span> de ce répertoire : il contient une description générale de l'application et référencera d'autres docs au besoin (exemple `ToDo`)
 
 ---
 
-**Répertoire - Templates** :
+**<span style="color: orange;">Domains</span>** :
+- un **répertoire par domaine fonctionnel** de mon application. Chaque répertoire portera sa <span style="color: orange;">documentation</span>, un <span style="color: orange;">Kanban dédié</span> et les <span style="color: orange;">notes</span> associées aux <span style="color: orange;">tickets</span>
+- 2 fichiers `base`, <span style="color: orange;">Documentation - Project</span> et <span style="color: orange;">Kanban - Project</span> : ce sont des **Kanbans globaux** qui listent respectivement toute la doc et tous les tickets existants dans le vault Obsidian
+
+---
+**<span style="color: gold;">- Templates</span>**
 
 Templates utilisés par l'IA pour ajouter de nouveaux domaines avec toute l'architecture qui va bien et à créer des tickets Kanban normalisés.
     </div>

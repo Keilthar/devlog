@@ -1,0 +1,24 @@
+{
+  "Colored Span": {
+    "scope": "markdown",
+    "prefix": [
+      "span-color",
+      "color-span"
+    ],
+    "body": [
+      "<span style=\"color: ${1|red,orange,gold,yellow,green,teal,cyan,steelblue,blue,indigo,purple,pink,brown,gray,black,white|};\">${2:${TM_SELECTED_TEXT:text}}</span>"
+    ],
+    "description": "Insert a colored inline span with a choice list of common colors."
+  },
+  "Colored Strong Span": {
+    "scope": "markdown",
+    "prefix": [
+      "span-color-strong",
+      "color-strong"
+    ],
+    "body": [
+      "<span style=\"color: ${1|red,orange,gold,yellow,green,teal,cyan,steelblue,blue,indigo,purple,pink,brown,gray,black,white|};\"><strong>${2:${TM_SELECTED_TEXT:text}}</strong></span>"
+    ],
+    "description": "Insert a bold colored inline span with a choice list of common colors."
+  }
+}
