@@ -1,4 +1,4 @@
----
+﻿---
 title: Welcome / Bienvenue !
 ---
 
@@ -25,13 +25,13 @@ title: Welcome / Bienvenue !
     <h1 style="text-align: left;">Technologies</h1>
     <div style="display: flex; gap: 2rem; justify-content: center; align-items: center;">
         <div style="flex: 0 0 25%;">
-            <img src="../static/Logos/Logo_Unity.png" width="100%">
+            <a href="../static/Logos/Logo_Unity.png" target="_blank"><img src="../static/Logos/Logo_Unity.png" width="100%"></a>
         </div>
         <div style="flex: 0 0 25%;">
-            <img src="../static/Logos/Logo_C.png" width="100%">
+            <a href="../static/Logos/Logo_C.png" target="_blank"><img src="../static/Logos/Logo_C.png" width="100%"></a>
         </div>
         <div style="flex: 0 0 25%;">
-            <img src="../static/Logos/Logo_Blender.png" width="100%">
+            <a href="../static/Logos/Logo_Blender.png" target="_blank"><img src="../static/Logos/Logo_Blender.png" width="100%"></a>
     </div>
 </div>
 
@@ -43,21 +43,22 @@ title: Welcome / Bienvenue !
     <!-- English -->
     <div style="flex: 0 0 25%;">
         <p style="text-align: center;">
-            <a href="./en/index.xml">🔊 RSS English</a>
+            <a href="./en/index.xml">ðŸ”Š RSS English</a>
         </p>
         <p style="text-align: justify;">We'll be talking about game development, tech, and other cool stuff here !</p>
-        <p style="text-align: center;"><a href="/en">📖 Read articles</a></p>
+        <p style="text-align: center;"><a href="/en">ðŸ“– Read articles</a></p>
     </div>
     <!-- Gif -->
     <div style="flex: 0 0 35%;">
-        <img src="../static/Gifs/simpsons_homer.gif" width="100%">
+        <a href="../static/Gifs/simpsons_homer.gif" target="_blank"><img src="../static/Gifs/simpsons_homer.gif" width="100%"></a>
     </div>
     <!-- French -->
     <div style="flex: 0 0 25%;">
         <p style="text-align: center;">
-            <a href="./fr/index.xml">🔊 RSS Français</a>
+            <a href="./fr/index.xml">ðŸ”Š RSS FranÃ§ais</a>
         </p>
         <p style="text-align: justify;">On va parler de game dev, de tech et d'autres trucs sympas ici !</p>
-        <p style="text-align: center;"><a href="/fr">📖 Lire les articles</a></p>
+        <p style="text-align: center;"><a href="/fr">ðŸ“– Lire les articles</a></p>
     </div>
 </div>
+

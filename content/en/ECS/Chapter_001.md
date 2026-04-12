@@ -1,5 +1,5 @@
----
-title: 💡 1 - ECS, the why
+﻿---
+title: ðŸ’¡ 1 - ECS, the why
 ---
 
 <style>
@@ -15,7 +15,7 @@ title: 💡 1 - ECS, the why
         </div>
         <div class="callout-content">
             <div class="callout-content-inner">
-                <img src="/static/png/ECS/Unity_ECS.png" alt="Unity ECS" width="100%"/>
+                <a href="/static/png/ECS/Unity_ECS.png" target="_blank"><img src="/static/png/ECS/Unity_ECS.png" alt="Unity ECS" width="100%"/></a>
             </div>
         </div>
     </blockquote>
@@ -23,7 +23,7 @@ title: 💡 1 - ECS, the why
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
 
-*I'll be talking here in a **Game Dev** context, but fundamentally this is a topic that cuts across the entire metaverse (yes, I dare you this word here 😏) of development: **<span style="color: steelblue;">Object-Oriented</span> VS <span style="color: steelblue;">Data-Oriented</span>**.*
+*I'll be talking here in a **Game Dev** context, but fundamentally this is a topic that cuts across the entire metaverse (yes, I dare you this word here ðŸ˜) of development: **<span style="color: steelblue;">Object-Oriented</span> VS <span style="color: steelblue;">Data-Oriented</span>**.*
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
 
@@ -33,7 +33,7 @@ title: 💡 1 - ECS, the why
 - we **break down our concepts into objects**
 - they carry both **properties** and **methods/functions**
 - each object gets its own **distinct instance** and can therefore be **independent**
-- and then we slowly descend into the hell of **inheritance chains** and cascading dependencies... but that's another story. 😌
+- and then we slowly descend into the hell of **inheritance chains** and cascading dependencies... but that's another story. ðŸ˜Œ
 
 In the context of game development, this approach is veeeery appealing. Not only does it fit from a functional decomposition standpoint (one object per player / enemy / decor / UI...), it also maps naturally to gameplay logic :
 
@@ -49,7 +49,7 @@ But as **flexible** and **well-suited** as OOP is for **game design**, it has on
 <div style="display: flex; gap: 20px; align-items: center;">
     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1;">
         <span style="color: orange;">-- Flexibility is a performance trade-off --</span>
-        <img src="/static/png/ECS/GameObject_Entity_Memory.png" alt="GameObject vs Entity memory comparison" width="100%"/>
+        <a href="/static/png/ECS/GameObject_Entity_Memory.png" target="_blank"><img src="/static/png/ECS/GameObject_Entity_Memory.png" alt="GameObject vs Entity memory comparison" width="100%"/></a>
         <a href="https://ilogos.biz/what-is-unitys-new-data-oriented-technology-stack-dots/" target="_blank">Image source</a>
     </div>
     <div style="flex: 1;">
@@ -68,7 +68,7 @@ And memory access is the very heart of performance - that relentless scan to rea
 
 **The holy saviour : <span style="color: steelblue;">DOD</span> !**
 
-**ECS** (Entity Component System) is an architecture that falls under the **DOD** (Data Oriented Design) paradigm. In the context of **Unity**, it's made very explicit - they call it **DOTS** (Data Oriented Technology Stack). *I promise I'll stop with the hellish acronyms now.* 😚
+**ECS** (Entity Component System) is an architecture that falls under the **DOD** (Data Oriented Design) paradigm. In the context of **Unity**, it's made very explicit - they call it **DOTS** (Data Oriented Technology Stack). *I promise I'll stop with the hellish acronyms now.* ðŸ˜š
 
 
 
@@ -85,7 +85,7 @@ It featured an impressive number of interactive, physics-enabled objects that yo
 
 </div>
     <div style="display: flex; justify-content: center; align-items: center; flex: 1;">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b6/Thief_The_Dark_Project_boxcover.jpg/250px-Thief_The_Dark_Project_boxcover.jpg" alt="Thief: The Dark Project" />
+            <a href="https://upload.wikimedia.org/wikipedia/en/thumb/b/b6/Thief_The_Dark_Project_boxcover.jpg/250px-Thief_The_Dark_Project_boxcover.jpg" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b6/Thief_The_Dark_Project_boxcover.jpg/250px-Thief_The_Dark_Project_boxcover.jpg" alt="Thief: The Dark Project" /></a>
     </div>
 
 </div>
@@ -99,7 +99,7 @@ Its design is relatively simple:
 - we can then **<span style="color: steelblue;">query</span>** groups of entities by filtering on components (much like querying a database)
 - through centralised **<span style="color: steelblue;">systems</span>**, the queried data is processed in bulk via **<span style="color: steelblue;">chunk</span>** splitting and **<span style="color: steelblue;">multi-threading</span>**
 
-<img src="/static/png/ECS/Unity_ECS_Concept.png" alt="ECS Unity Concept" width="100%"/>
+<a href="/static/png/ECS/Unity_ECS_Concept.png" target="_blank"><img src="/static/png/ECS/Unity_ECS_Concept.png" alt="ECS Unity Concept" width="100%"/></a>
 
 <div style = "display: flex; justify-content: center; align-items: center;">
     <blockquote class="callout tip" data-callout="tip">
@@ -182,7 +182,7 @@ This makes it an extremely powerful architecture, which has found many use cases
 
 All of which involve large quantities of non-static objects and are exactly where DOD shines.
 
-But you'll notice this list is fairly narrow - and that this architecture isn't used everywhere... 👀
+But you'll notice this list is fairly narrow - and that this architecture isn't used everywhere... ðŸ‘€
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
 
@@ -204,14 +204,14 @@ The industry has, as always, chosen the pragmatic path : **hybrid**. Knowing whe
 
 But while the industry has long had to treat ECS and OOP as two separate worlds, a new path may be opening up. At the <a href="https://youtu.be/BtObK0arD_M" target="_blank">GDC in March 2026</a>, **Unity** decided to swing big : why not **merge** the two approaches?
 
-<img src="https://pbs.twimg.com/media/HCq5KsqaUAcM-dR?format=jpg&name=large" alt="GDC Unity 2026" width="100%"/>
+<a href="https://pbs.twimg.com/media/HCq5KsqaUAcM-dR?format=jpg&name=large" target="_blank"><img src="https://pbs.twimg.com/media/HCq5KsqaUAcM-dR?format=jpg&name=large" alt="GDC Unity 2026" width="100%"/></a>
 
 ECS would become a core engine package (no longer an optional add-on), in the spirit of [**Bevy**](https://bevy.org/) (a game engine in Rust that is natively ECS). Entities would become the backend of the entire engine, but GameObjects wouldn't disappear - they'd become a comfort layer on top of entities, with the engine handling the conversion. The clarity of OOP design on top, the power of ECS underneath.
 <span style="color: orange;">-- ECS will no longer be a choice, but the foundation. The GameObject will no longer be an alternative, but an interface. --</span>
 
 In other words, the hybrid approach I described above would no longer be an architectural compromise, but the engine's default mode of operation. Want rapid prototyping ? Stay at the GameObject level. Want raw performance ? The engine will let you shift your GameObject architecture toward ECS and unlock its full potential. Same data, same engine - two worlds in one.
 
-And I'll admit I'm very curious to see how it turns out. 👀
+And I'll admit I'm very curious to see how it turns out. ðŸ‘€
 
 <script src="https://giscus.app/client.js"
         data-repo="Keilthar/devlog"
@@ -229,3 +229,4 @@ And I'll admit I'm very curious to see how it turns out. 👀
         crossorigin="anonymous"
         async>
 </script>
+

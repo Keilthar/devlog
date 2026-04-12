@@ -1,4 +1,4 @@
----
+﻿---
 title: Articles (EN)
 ---
 <style>
@@ -20,17 +20,17 @@ title: Articles (EN)
     </blockquote>
 </div>
 
-<p style="text-align: center;"><a href="./index.xml">🔊 Subscribe via RSS</a></p>
+<p style="text-align: center;"><a href="./index.xml">ðŸ”Š Subscribe via RSS</a></p>
 
 **Who am I?**
 
-The short and boring answer: nobody! 😜
+The short and boring answer: nobody! ðŸ˜œ
 
 I'm a **self-taught independent developer since 2019**. I work with **<span style="color: steelblue;">Unity</span>** and **<span style="color: steelblue;">Blender</span>**. But it turns out I suffer from scope creep syndrome: I love building systems that are way too ambitious for the little solo developer that I am.
 
 <div style="display: flex; gap: 20px; align-items: center;">
     <div style="flex: 1;">
-        <img src="/static/png/Scope_Creep.png" alt="Scope creep" width="100%"/>
+        <a href="/static/png/Scope_Creep.png" target="_blank"><img src="/static/png/Scope_Creep.png" alt="Scope creep" width="100%"/></a>
     </div>
     <div style="flex: 1;">
 
@@ -49,7 +49,7 @@ So I figured it's quite silly to keep all these experiences to myself when they 
 
 I'll be rambling about all sorts of topics:
 - **<span style="color: steelblue;">action RPG</span>** and **<span style="color: steelblue;">Tower Defense</span>** development
-- **<span style="color: steelblue;">simulations</span>** of crowds, leaves 🍂, grass 🌿 and other unlikely things
+- **<span style="color: steelblue;">simulations</span>** of crowds, leaves ðŸ‚, grass ðŸŒ¿ and other unlikely things
 - **<span style="color: steelblue;">map editor</span>** and **<span style="color: steelblue;">diegetic</span>** interfaces
 - **<span style="color: steelblue;">multiplayer</span>** networking with self-hosting
 - **<span style="color: steelblue;">ECS</span>** (Entity - Component - System) implementation
@@ -57,9 +57,9 @@ I'll be rambling about all sorts of topics:
 - **<span style="color: steelblue;">AI</span>**-assisted game dev (neither is that one)
 
 On this **devlog**, you'll find 3 main types of content:
-- 📖 implementation **<span style="color: steelblue;">tutorials</span>**
-- 💡 **<span style="color: steelblue;">vulgarization</span>** about **game dev** (and sometimes about more general **tech** topics)
-- ✏️ **<span style="color: steelblue;">opinion pieces</span>** (to be or not to be a game dev? that is the question! 🤔)
+- ðŸ“– implementation **<span style="color: steelblue;">tutorials</span>**
+- ðŸ’¡ **<span style="color: steelblue;">vulgarization</span>** about **game dev** (and sometimes about more general **tech** topics)
+- âœï¸ **<span style="color: steelblue;">opinion pieces</span>** (to be or not to be a game dev? that is the question! ðŸ¤”)
 
 In short, if you're interested in **game dev**, chances are I'll cover a topic that catches your eye sooner or later. And if so, welcome aboard!
 
@@ -71,14 +71,15 @@ In short, if you're interested in **game dev**, chances are I'll cover a topic t
     <h1 style="text-align: left;">Technologies</h1>
     <div style="display: flex; gap: 2rem; justify-content: center; align-items: center;">
         <div style="flex: 0 0 25%;">
-            <img src="/static/Logos/Logo_Unity.png" width="100%">
+            <a href="/static/Logos/Logo_Unity.png" target="_blank"><img src="/static/Logos/Logo_Unity.png" width="100%"></a>
         </div>
         <div style="flex: 0 0 25%;">
-            <img src="/static/Logos/Logo_C.png" width="100%">
+            <a href="/static/Logos/Logo_C.png" target="_blank"><img src="/static/Logos/Logo_C.png" width="100%"></a>
         </div>
         <div style="flex: 0 0 25%;">
-            <img src="/static/Logos/Logo_Blender.png" width="100%">
+            <a href="/static/Logos/Logo_Blender.png" target="_blank"><img src="/static/Logos/Logo_Blender.png" width="100%"></a>
     </div>
 </div>
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
+

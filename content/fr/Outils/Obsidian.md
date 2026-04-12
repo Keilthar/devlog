@@ -16,7 +16,7 @@ hidden: false
         </div>
         <div class="callout-content">
             <div class="callout-content-inner">
-                <img src="/static/png/Kanban_System.webp" alt="Unity ECS" width="100%"/>
+                <a href="/static/png/Kanban_System.webp" target="_blank"><img src="/static/png/Kanban_System.webp" alt="Unity ECS" width="100%"/></a>
             </div>
         </div>
     </blockquote>
@@ -45,11 +45,11 @@ Ce que je vais vous présenter ici, c'est donc un **processus de gestion de proj
 ---
 <div style="display: flex; gap: 20px; align-items: center;">
     <div>
-            <img src="/static/png/Obsidian/Kanban_Interne.png" alt="Kanban Interne" width="100%"/>
+            <a href="/static/png/Obsidian/Kanban_Interne.png" target="_blank"><img src="/static/png/Obsidian/Kanban_Interne.png" alt="Kanban Interne" width="100%"/></a>
             <div style="display: flex; justify-content: center; align-items: center; flex: 1;"><span>Kanban par domaine fonctionnel, manipulé par IA</span></div>
     </div>
     <div>
-        <img src="/static/png/Obsidian/Kanban_Base.png" alt="Kanban Base" width="100%"/>
+        <a href="/static/png/Obsidian/Kanban_Base.png" target="_blank"><img src="/static/png/Obsidian/Kanban_Base.png" alt="Kanban Base" width="100%"/></a>
         <div style="display: flex; justify-content: center; align-items: center; flex: 1;"><span>Kanban global, synchronisé par metadata Obsidian</span></div>
     </div>
 </div>
@@ -75,7 +75,7 @@ Ici, on ne va pas s'intéresser à comment s'en servir (vous avez un beau README
 
 <div style="display: flex; gap: 20px; align-items: center;">
     <div style="display: flex; justify-content: center; align-items: center; flex: 1;">
-            <img src="/static/png/IndieDev_OneManArmy.jpg" alt="Worktree Obsidian" width="100%"/>
+            <a href="/static/png/IndieDev_OneManArmy.jpg" target="_blank"><img src="/static/png/IndieDev_OneManArmy.jpg" alt="Worktree Obsidian" width="100%"/></a>
     </div>
     <div style="flex: 1;">
 
@@ -93,7 +93,7 @@ Dans le cadre de mon jeu, la structure ressemble à ça :
 
 <div style="display: flex; gap: 20px; align-items: center;">
     <div style="display: flex; justify-content: center; align-items: center; flex: 1;">
-            <img src="/static/png/Obsidian/Worktree.png" alt="Worktree Obsidian" width="100%"/>
+            <a href="/static/png/Obsidian/Worktree.png" target="_blank"><img src="/static/png/Obsidian/Worktree.png" alt="Worktree Obsidian" width="100%"/></a>
     </div>
     <div style="flex: 1;">
 
@@ -130,7 +130,7 @@ Il contient :
         </div>
         <div style="display: flex; gap: 20px; align-items: center;">
             <div style="display: flex; justify-content: center; align-items: center; flex: 1;">
-                    <img src="/static/Gifs/smart.gif" alt="Smart" width="100%"/>
+                    <a href="/static/Gifs/smart.gif" target="_blank"><img src="/static/Gifs/smart.gif" alt="Smart" width="100%"/></a>
             </div>
             <div style="flex: 1;">
                 <span>
@@ -160,7 +160,7 @@ L'idée est donc de créer un système à trois niveaux de responsabilités :
 - ces points d'entrée ne vont définir qu'une logique d'enchaînement d'actions, mais pas le détail de l'action elle-même
 - des procédures détaillées par actions (`Ticket_Create`, `Ticket_Move`, `Ticket_Remove`) qui peuvent être <span style="color: orange;">consommées par plusieurs points d'entrée</span>
 
-<img src="/static/png/Obsidian/AI_Centralization.png" alt="Kanban Interne" width="100%"/>
+<a href="/static/png/Obsidian/AI_Centralization.png" target="_blank"><img src="/static/png/Obsidian/AI_Centralization.png" alt="Kanban Interne" width="100%"/></a>
 
 C'est littéralement du **KISS appliqué à de la gestion de projet**. Chaque acteur a un périmètre restreint :
 - l'AI provider est l'interface pour le client
@@ -169,7 +169,7 @@ C'est littéralement du **KISS appliqué à de la gestion de projet**. Chaque ac
 
 Côté IA, on se retrouve alors avec des fichiers d'une simplicité déconcertante : une simple liste de lecture, parfois associée à un trigger contextuel.
 
-<img src="/static/png/Obsidian/AI_MDs.png" alt="Kanban Interne" width="100%"/>
+<a href="/static/png/Obsidian/AI_MDs.png" target="_blank"><img src="/static/png/Obsidian/AI_MDs.png" alt="Kanban Interne" width="100%"/></a>
 
 Et donc, pour aller au bout de la démarche, j'ai créé un skill qui crée des skills minimalistes et les duplique entre tous les clients IA détectés dans le répertoire.
 
@@ -248,3 +248,4 @@ Sur ce, messieurs-dames, à vos tickets !
         crossorigin="anonymous"
         async>
 </script>
+
