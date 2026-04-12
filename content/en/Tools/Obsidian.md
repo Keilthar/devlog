@@ -22,6 +22,8 @@ hidden: false
     </blockquote>
 </div>
 
+<p style="text-align: center;"><a href="../index.xml">🔊 Subscribe via RSS</a></p>
+
 ---
 
 🌈 **The miracle product has arrived! (no)**
@@ -53,6 +55,8 @@ So what I'm going to present here is a **project management process built throug
         <div style="display: flex; justify-content: center; align-items: center; flex: 1;"><span>Global Kanban, synchronized through Obsidian metadata</span></div>
     </div>
 </div>
+
+<p style="text-align: center;"><a href="../index.xml">🔊 Subscribe via RSS</a></p>
 
 ---
 Interested in the concept? Then head over to the GitHub page for the **installation and usage process**: https://github.com/Keilthar/Obsidian-Workflow
@@ -145,6 +149,8 @@ And for a global MVP tracking board? `.base` files! It is an <span style="color:
     </blockquote>
 </div>
 
+<p style="text-align: center;"><a href="../index.xml">🔊 Subscribe via RSS</a></p>
+
 ----
 
 **Big brain AI 🧠**
@@ -190,6 +196,8 @@ If I notice drift, or after a `/compact` in the conversation, I simply type `/pr
         </div>
     </blockquote>
 </div>
+
+<p style="text-align: center;"><a href="../index.xml">🔊 Subscribe via RSS</a></p>
 
 ----
 

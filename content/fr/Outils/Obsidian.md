@@ -22,6 +22,8 @@ hidden: false
     </blockquote>
 </div>
 
+<p style="text-align: center;"><a href="../index.xml">🔊 S'abonner au flux RSS</a></p>
+
 ---
 
 ?? **Le produit miracle est arriv� ! (non)**
@@ -53,6 +55,8 @@ Ce que je vais vous pr�senter ici, c'est donc un **processus de gestion de pro
         <div style="display: flex; justify-content: center; align-items: center; flex: 1;"><span>Kanban global, synchronis� par metadata Obsidian</span></div>
     </div>
 </div>
+
+<p style="text-align: center;"><a href="../index.xml">🔊 S'abonner au flux RSS</a></p>
 
 ---
 Le concept vous int�resse ? Je vous renvoie vers la page GitHub pour les **processus d'installation et d'utilisation** : https://github.com/Keilthar/Obsidian-Workflow
@@ -145,6 +149,8 @@ Et pour un Kanban global de suivi d'un MVP ? Des fichiers <span style="color: st
     </blockquote>
 </div>
 
+<p style="text-align: center;"><a href="../index.xml">🔊 S'abonner au flux RSS</a></p>
+
 ----
 
 **Le big brain AI ??**
@@ -190,6 +196,8 @@ Si je constate une d�viance ou apr�s `/compact` de la discussion, je tape si
         </div>
     </blockquote>
 </div>
+
+<p style="text-align: center;"><a href="../index.xml">🔊 S'abonner au flux RSS</a></p>
 
 ----
 
