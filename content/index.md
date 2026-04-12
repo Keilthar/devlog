@@ -46,7 +46,7 @@ title: Welcome / Bienvenue !
             <a href="./en/index.xml">🔊 RSS English</a>
         </p>
         <p style="text-align: justify;">We'll be talking about game development, tech, and other cool stuff here !</p>
-        <p style="text-align: center;"><a href="/en">📖 Read articles</a></p>
+        <p style="text-align: center;"><a href="/en/">📖 Read articles</a></p>
     </div>
     <!-- Gif -->
     <div style="flex: 0 0 35%;">
@@ -58,7 +58,7 @@ title: Welcome / Bienvenue !
             <a href="./fr/index.xml">🔊 RSS Français</a>
         </p>
         <p style="text-align: justify;">On va parler de game dev, de tech et d'autres trucs sympas ici !</p>
-        <p style="text-align: center;"><a href="/fr">📖 Lire les articles</a></p>
+        <p style="text-align: center;"><a href="/fr/">📖 Lire les articles</a></p>
     </div>
 </div>
 
