@@ -26,6 +26,10 @@ hidden: false
 
 ---
 
+<p style="text-align: center;"><a href="https://github.com/Keilthar/Obsidian-Workflow">Lien vers la page Github de l'outil</a></p>
+
+---
+
 🌈 **Le produit miracle est arrivé ! (non)**
 
 Ah, le suivi de projet, les tickets, la documentation et la synchronisation Git... une grande passion qui anime tous les développeurs et développeuses de ce monde.
