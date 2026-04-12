@@ -21,8 +21,8 @@ hidden: false
         </div>
     </blockquote>
 </div>
-
 <p style="text-align: center;"><a href="../index.xml">🔊 Subscribe via RSS</a></p>
+
 
 ---
 
@@ -56,7 +56,6 @@ So what I'm going to present here is a **project management process built throug
     </div>
 </div>
 
-<p style="text-align: center;"><a href="../index.xml">🔊 Subscribe via RSS</a></p>
 
 ---
 Interested in the concept? Then head over to the GitHub page for the **installation and usage process**: https://github.com/Keilthar/Obsidian-Workflow
@@ -149,7 +148,6 @@ And for a global MVP tracking board? `.base` files! It is an <span style="color:
     </blockquote>
 </div>
 
-<p style="text-align: center;"><a href="../index.xml">🔊 Subscribe via RSS</a></p>
 
 ----
 
@@ -197,7 +195,6 @@ If I notice drift, or after a `/compact` in the conversation, I simply type `/pr
     </blockquote>
 </div>
 
-<p style="text-align: center;"><a href="../index.xml">🔊 Subscribe via RSS</a></p>
 
 ----
 
