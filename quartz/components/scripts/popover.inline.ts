@@ -1,4 +1,4 @@
-import { computePosition, flip, inline, shift } from "@floating-ui/dom"
+﻿import { computePosition, flip, inline, shift } from "@floating-ui/dom"
 import { normalizeRelativeURLs } from "../../util/path"
 import { fetchCanonical } from "./util"
 
@@ -11,6 +11,10 @@ async function mouseEnterHandler(
 ) {
   const link = (activeAnchor = this)
   if (link.dataset.noPopover === "true") {
+    return
+  }
+
+  if (link.querySelector("img") !== null) {
     return
   }
 
