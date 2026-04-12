@@ -1,4 +1,4 @@
-import { pathToRoot, joinSegments } from "../util/path"
+﻿import { pathToRoot, joinSegments } from "../util/path"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { classNames } from "../util/lang"
 import { i18n } from "../i18n"
@@ -9,7 +9,7 @@ const PageTitle: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzCompo
   const logoSrc = joinSegments(baseDir, "static/Logos/Logo_Keilthar.png")
   return (
     <div class={classNames(displayClass, "page-title")}>
-      <a style = "display: extend; align-items: center;" href={baseDir} class="page-title-link">
+      <a href={baseDir} class="page-title-link">
         <img src={logoSrc} alt="Keilthar logo" class="page-title-logo" />
         <h2 class="page-title-text">{title}</h2>
       </a>
@@ -38,6 +38,25 @@ PageTitle.css = `
   height: 14rem;
   object-fit: cover;
   border-radius: 4px;
+}
+
+@media all and (max-width: 800px) {
+  .page-title-link {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .page-title-text {
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+
+  .page-title-logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    flex-shrink: 0;
+  }
 }
 `
 
