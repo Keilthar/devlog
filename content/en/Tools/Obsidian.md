@@ -21,7 +21,7 @@ hidden: false
         </div>
     </blockquote>
 </div>
-<p style="text-align: center;"><a href="../../index.xml">🔊 Subscribe via RSS</a></p>
+<p style="text-align: center;"><a href="../index.xml">🔊 Subscribe via RSS</a></p>
 
 
 ---
