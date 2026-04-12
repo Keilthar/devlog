@@ -22,7 +22,7 @@ hidden: false
     </blockquote>
 </div>
 
-<p style="text-align: center;"><a href="../../index.xml">🔊 S'abonner au flux RSS</a></p>
+<p style="text-align: center;"><a href="./fr/index.xml">🔊 S'abonner au flux RSS</a></p>
 
 ---
 

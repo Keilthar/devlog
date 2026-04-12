@@ -20,7 +20,7 @@ title: Articles (EN)
     </blockquote>
 </div>
 
-<p style="text-align: center;"><a href="./index.xml">🔊 Subscribe via RSS</a></p>
+<p style="text-align: center;"><a href="./en/index.xml">🔊 Subscribe via RSS</a></p>
 
 **Who am I?**
 
