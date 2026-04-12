@@ -20,11 +20,11 @@ title: Articles (EN)
     </blockquote>
 </div>
 
-<p style="text-align: center;"><a href="./index.xml">ðŸ”Š Subscribe via RSS</a></p>
+<p style="text-align: center;"><a href="./index.xml">🔊 Subscribe via RSS</a></p>
 
 **Who am I?**
 
-The short and boring answer: nobody! ðŸ˜œ
+The short and boring answer: nobody! 😜
 
 I'm a **self-taught independent developer since 2019**. I work with **<span style="color: steelblue;">Unity</span>** and **<span style="color: steelblue;">Blender</span>**. But it turns out I suffer from scope creep syndrome: I love building systems that are way too ambitious for the little solo developer that I am.
 
@@ -49,7 +49,7 @@ So I figured it's quite silly to keep all these experiences to myself when they 
 
 I'll be rambling about all sorts of topics:
 - **<span style="color: steelblue;">action RPG</span>** and **<span style="color: steelblue;">Tower Defense</span>** development
-- **<span style="color: steelblue;">simulations</span>** of crowds, leaves ðŸ‚, grass ðŸŒ¿ and other unlikely things
+- **<span style="color: steelblue;">simulations</span>** of crowds, leaves 🍂, grass 🌿 and other unlikely things
 - **<span style="color: steelblue;">map editor</span>** and **<span style="color: steelblue;">diegetic</span>** interfaces
 - **<span style="color: steelblue;">multiplayer</span>** networking with self-hosting
 - **<span style="color: steelblue;">ECS</span>** (Entity - Component - System) implementation
@@ -57,9 +57,9 @@ I'll be rambling about all sorts of topics:
 - **<span style="color: steelblue;">AI</span>**-assisted game dev (neither is that one)
 
 On this **devlog**, you'll find 3 main types of content:
-- ðŸ“– implementation **<span style="color: steelblue;">tutorials</span>**
-- ðŸ’¡ **<span style="color: steelblue;">vulgarization</span>** about **game dev** (and sometimes about more general **tech** topics)
-- âœï¸ **<span style="color: steelblue;">opinion pieces</span>** (to be or not to be a game dev? that is the question! ðŸ¤”)
+- 📖 implementation **<span style="color: steelblue;">tutorials</span>**
+- 💡 **<span style="color: steelblue;">vulgarization</span>** about **game dev** (and sometimes about more general **tech** topics)
+- ✏️ **<span style="color: steelblue;">opinion pieces</span>** (to be or not to be a game dev? that is the question! 🤔)
 
 In short, if you're interested in **game dev**, chances are I'll cover a topic that catches your eye sooner or later. And if so, welcome aboard!
 

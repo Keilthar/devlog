@@ -43,10 +43,10 @@ title: Welcome / Bienvenue !
     <!-- English -->
     <div style="flex: 0 0 25%;">
         <p style="text-align: center;">
-            <a href="./en/index.xml">ðŸ”Š RSS English</a>
+            <a href="./en/index.xml">🔊 RSS English</a>
         </p>
         <p style="text-align: justify;">We'll be talking about game development, tech, and other cool stuff here !</p>
-        <p style="text-align: center;"><a href="/en">ðŸ“– Read articles</a></p>
+        <p style="text-align: center;"><a href="/en">📖 Read articles</a></p>
     </div>
     <!-- Gif -->
     <div style="flex: 0 0 35%;">
@@ -55,10 +55,10 @@ title: Welcome / Bienvenue !
     <!-- French -->
     <div style="flex: 0 0 25%;">
         <p style="text-align: center;">
-            <a href="./fr/index.xml">ðŸ”Š RSS FranÃ§ais</a>
+            <a href="./fr/index.xml">🔊 RSS Français</a>
         </p>
         <p style="text-align: justify;">On va parler de game dev, de tech et d'autres trucs sympas ici !</p>
-        <p style="text-align: center;"><a href="/fr">ðŸ“– Lire les articles</a></p>
+        <p style="text-align: center;"><a href="/fr">📖 Lire les articles</a></p>
     </div>
 </div>
 

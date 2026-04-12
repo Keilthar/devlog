@@ -1,5 +1,5 @@
 ﻿---
-title: ðŸ’¡ 1 - ECS, the why
+title: 💡 1 - ECS, the why
 ---
 
 <style>
@@ -23,7 +23,7 @@ title: ðŸ’¡ 1 - ECS, the why
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
 
-*I'll be talking here in a **Game Dev** context, but fundamentally this is a topic that cuts across the entire metaverse (yes, I dare you this word here ðŸ˜) of development: **<span style="color: steelblue;">Object-Oriented</span> VS <span style="color: steelblue;">Data-Oriented</span>**.*
+*I'll be talking here in a **Game Dev** context, but fundamentally this is a topic that cuts across the entire metaverse (yes, I dare you this word here 😏) of development: **<span style="color: steelblue;">Object-Oriented</span> VS <span style="color: steelblue;">Data-Oriented</span>**.*
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
 
@@ -33,7 +33,7 @@ title: ðŸ’¡ 1 - ECS, the why
 - we **break down our concepts into objects**
 - they carry both **properties** and **methods/functions**
 - each object gets its own **distinct instance** and can therefore be **independent**
-- and then we slowly descend into the hell of **inheritance chains** and cascading dependencies... but that's another story. ðŸ˜Œ
+- and then we slowly descend into the hell of **inheritance chains** and cascading dependencies... but that's another story. 😌
 
 In the context of game development, this approach is veeeery appealing. Not only does it fit from a functional decomposition standpoint (one object per player / enemy / decor / UI...), it also maps naturally to gameplay logic :
 
@@ -68,7 +68,7 @@ And memory access is the very heart of performance - that relentless scan to rea
 
 **The holy saviour : <span style="color: steelblue;">DOD</span> !**
 
-**ECS** (Entity Component System) is an architecture that falls under the **DOD** (Data Oriented Design) paradigm. In the context of **Unity**, it's made very explicit - they call it **DOTS** (Data Oriented Technology Stack). *I promise I'll stop with the hellish acronyms now.* ðŸ˜š
+**ECS** (Entity Component System) is an architecture that falls under the **DOD** (Data Oriented Design) paradigm. In the context of **Unity**, it's made very explicit - they call it **DOTS** (Data Oriented Technology Stack). *I promise I'll stop with the hellish acronyms now.* 😚
 
 
 
@@ -182,7 +182,7 @@ This makes it an extremely powerful architecture, which has found many use cases
 
 All of which involve large quantities of non-static objects and are exactly where DOD shines.
 
-But you'll notice this list is fairly narrow - and that this architecture isn't used everywhere... ðŸ‘€
+But you'll notice this list is fairly narrow - and that this architecture isn't used everywhere... 👀
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
 
@@ -211,7 +211,7 @@ ECS would become a core engine package (no longer an optional add-on), in the sp
 
 In other words, the hybrid approach I described above would no longer be an architectural compromise, but the engine's default mode of operation. Want rapid prototyping ? Stay at the GameObject level. Want raw performance ? The engine will let you shift your GameObject architecture toward ECS and unlock its full potential. Same data, same engine - two worlds in one.
 
-And I'll admit I'm very curious to see how it turns out. ðŸ‘€
+And I'll admit I'm very curious to see how it turns out. 👀
 
 <script src="https://giscus.app/client.js"
         data-repo="Keilthar/devlog"

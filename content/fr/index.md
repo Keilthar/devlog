@@ -20,13 +20,13 @@ title: Articles (FR)
     </blockquote>
 </div>
 
-<p style="text-align: center;"><a href="./index.xml">ðŸ”Š S'abonner au flux RSS</a></p>
+<p style="text-align: center;"><a href="./index.xml">🔊 S'abonner au flux RSS</a></p>
 
 **Qui suis-je ?**
 
-La rÃ©ponse courte et nulle : personne ! ðŸ˜œ
+La réponse courte et nulle : personne ! 😜
 
-Je suis **dÃ©veloppeur indÃ©pendant autodidacte depuis 2019**. Je travaille sur **<span style="color: steelblue;">Unity</span>** et **<span style="color: steelblue;">Blender</span>**. Mais il se trouve que je souffre de la maladie de l'overscope : j'aime crÃ©er des systÃ¨mes beaucoup trop ambitieux pour le petit dÃ©veloppeur solo que je suis. 
+Je suis **développeur indépendant autodidacte depuis 2019**. Je travaille sur **<span style="color: steelblue;">Unity</span>** et **<span style="color: steelblue;">Blender</span>**. Mais il se trouve que je souffre de la maladie de l'overscope : j'aime créer des systèmes beaucoup trop ambitieux pour le petit développeur solo que je suis. 
  
 <div style="display: flex; gap: 20px; align-items: center;">
     <div style="flex: 1;">
@@ -34,34 +34,34 @@ Je suis **dÃ©veloppeur indÃ©pendant autodidacte depuis 2019**. Je travaille 
     </div>
     <div style="flex: 1;">
 
-J'essaie donc tant bien que mal de crÃ©er un **Tower Defense** inspirÃ© d'**[Orcs Must Die](https://store.steampowered.com/app/201790/Orcs_Must_Die_2/)** et de **[Dungeon Defenders](https://store.steampowered.com/app/236110/Dungeon_Defenders_II/)**, avec une petite touche de **horde mode** Ã  la **[They Are Billions](https://store.steampowered.com/app/644930/They_Are_Billions/)** et autre **[Age of Darkness : Final Stand](https://store.steampowered.com/app/1426450/Age_of_Darkness_Final_Stand/)**, ou **[Cataclismo](https://store.steampowered.com/app/1422440/Cataclismo/)**.
+J'essaie donc tant bien que mal de créer un **Tower Defense** inspiré d'**[Orcs Must Die](https://store.steampowered.com/app/201790/Orcs_Must_Die_2/)** et de **[Dungeon Defenders](https://store.steampowered.com/app/236110/Dungeon_Defenders_II/)**, avec une petite touche de **horde mode** à la **[They Are Billions](https://store.steampowered.com/app/644930/They_Are_Billions/)** et autre **[Age of Darkness : Final Stand](https://store.steampowered.com/app/1426450/Age_of_Darkness_Final_Stand/)**, ou **[Cataclismo](https://store.steampowered.com/app/1422440/Cataclismo/)**.
 
-Le tout accompagnÃ© d'un **Ã©diteur de cartes partageables** et d'un mode **multijoueur avec serveur self-hosted**, comme on en avait Ã  l'Ã©poque d'Age of Empires II et autres Warcraft 3 (ouai je suis un peu vieux, enfant des annÃ©es 80 tout Ã§a tout Ã§a...).
+Le tout accompagné d'un **éditeur de cartes partageables** et d'un mode **multijoueur avec serveur self-hosted**, comme on en avait à l'époque d'Age of Empires II et autres Warcraft 3 (ouai je suis un peu vieux, enfant des années 80 tout ça tout ça...).
 
-Bref un petit programme, vous en conviendrez ! Et si j'avance indÃ©niablement lentement, j'en apprends aussi Ã©normÃ©ment.
+Bref un petit programme, vous en conviendrez ! Et si j'avance indéniablement lentement, j'en apprends aussi énormément.
 
-Je me suis donc dit que c'est bÃªte de garder toutes ces expÃ©riences pour moi tout seul et que Ã§a pourrait aussi en intÃ©resser d'autres !
+Je me suis donc dit que c'est bête de garder toutes ces expériences pour moi tout seul et que ça pourrait aussi en intéresser d'autres !
 
 </div>
 </div>
 
 **Que trouverez-vous ici ?**
 
-Je vais donc dÃ©blatÃ©rer sur plein de sujets :
-- dÃ©veloppement d'**<span style="color: steelblue;">action RPG</span>** et de **<span style="color: steelblue;">Tower Defense</span>**
-- **<span style="color: steelblue;">simulations</span>** de foules, de feuilles ðŸ‚, d'herbe ðŸŒ¿ et d'autres trucs improbables
-- **<span style="color: steelblue;">Ã©diteur de map</span>** et interfaces **<span style="color: steelblue;">diÃ©gÃ©tiques</span>**
-- rÃ©seau **<span style="color: steelblue;">multijoueur</span>** avec du self-hosting
-- implÃ©mentation **<span style="color: steelblue;">ECS</span>** (Entity - Component - System)
+Je vais donc déblatérer sur plein de sujets :
+- développement d'**<span style="color: steelblue;">action RPG</span>** et de **<span style="color: steelblue;">Tower Defense</span>**
+- **<span style="color: steelblue;">simulations</span>** de foules, de feuilles 🍂, d'herbe 🌿 et d'autres trucs improbables
+- **<span style="color: steelblue;">éditeur de map</span>** et interfaces **<span style="color: steelblue;">diégétiques</span>**
+- réseau **<span style="color: steelblue;">multijoueur</span>** avec du self-hosting
+- implémentation **<span style="color: steelblue;">ECS</span>** (Entity - Component - System)
 - **<span style="color: steelblue;">optimisation</span>**  et **<span style="color: steelblue;">performances</span>** (ce ne sont pas des gros mots)
-- game dev assistÃ© par **<span style="color: steelblue;">IA</span>** (ce mot lÃ  non plus)
+- game dev assisté par **<span style="color: steelblue;">IA</span>** (ce mot là non plus)
 
 Sur ce **devlog**, vous trouverez 3 grands types de contenus :
-- des ðŸ“– **<span style="color: steelblue;">tutos</span>** d'implÃ©mentations
-- de la ðŸ’¡ **<span style="color: steelblue;">vulgarisation</span>** sur le **game dev** (et parfois sur de la **tech** plus gÃ©nÃ©raliste)
-- des âœï¸ **<span style="color: steelblue;">billets de rÃ©flexion</span>** (Ãªtre ou ne pas Ãªtre game dev ? telle est la question ! ðŸ¤”)
+- des 📖 **<span style="color: steelblue;">tutos</span>** d'implémentations
+- de la 💡 **<span style="color: steelblue;">vulgarisation</span>** sur le **game dev** (et parfois sur de la **tech** plus généraliste)
+- des ✏️ **<span style="color: steelblue;">billets de réflexion</span>** (être ou ne pas être game dev ? telle est la question ! 🤔)
 
-Bref si vous vous intÃ©ressez au **game dev**, moyen que je parle d'un sujet qui vous intÃ©resse Ã  un moment ou un autre. Et si c'est le cas, bienvenue Ã  bord !
+Bref si vous vous intéressez au **game dev**, moyen que je parle d'un sujet qui vous intéresse à un moment ou un autre. Et si c'est le cas, bienvenue à bord !
 
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>

@@ -1,5 +1,5 @@
 ﻿---
-title: ðŸ’¡ 1 - ECS, le pourquoi
+title: 💡 1 - ECS, le pourquoi
 ---
 
 <style>
@@ -23,42 +23,42 @@ title: ðŸ’¡ 1 - ECS, le pourquoi
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
 
-*Je vais ici parler dans un contexte **Game Dev**, mais fondamentalement, c'est un sujet qui est transverse au mÃ©taverse (ouai j'ose le mot ðŸ˜) du dÃ©veloppement : **<span style="color: steelblue;">l'orientÃ© Object</span> VS <span style="color: steelblue;">l'orientÃ© Data</span>**.*
+*Je vais ici parler dans un contexte **Game Dev**, mais fondamentalement, c'est un sujet qui est transverse au métaverse (ouai j'ose le mot 😏) du développement : **<span style="color: steelblue;">l'orienté Object</span> VS <span style="color: steelblue;">l'orienté Data</span>**.*
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
 
-**Aux origines de la galÃ¨re : le <span style="color: steelblue;">OOP</span> !**
+**Aux origines de la galère : le <span style="color: steelblue;">OOP</span> !**
 
-Le **OOP (Object Oriented Programming)** dispose de cette incroyable force qu'il Ã©pouse Ã  merveille les prÃ©dispositions de nos cerveaux mollassons :
-- on **dÃ©coupe nos concepts mÃ©tier en objets**
-- ils portent Ã  la fois des **propriÃ©tÃ©s** et des **mÃ©thodes/fonctions**
-- chaque objet a droit Ã  son **instance distincte** et il pourra donc Ãªtre **autonome** dans son coin
-- et on pourra ensuite lentement tomber dans l'enfer des **hÃ©ritages** et des dÃ©pendances en cascade... mais c'est un autre sujet. ðŸ˜Œ
+Le **OOP (Object Oriented Programming)** dispose de cette incroyable force qu'il épouse à merveille les prédispositions de nos cerveaux mollassons :
+- on **découpe nos concepts métier en objets**
+- ils portent à la fois des **propriétés** et des **méthodes/fonctions**
+- chaque objet a droit à son **instance distincte** et il pourra donc être **autonome** dans son coin
+- et on pourra ensuite lentement tomber dans l'enfer des **héritages** et des dépendances en cascade... mais c'est un autre sujet. 😌
 
-Dans le cadre du jeu vidÃ©o, cette approche est trÃ¨Ã¨Ã¨Ã¨Ã¨Ã¨s attrayante. Parce que non seulement Ã§a colle d'un point de vue dÃ©coupage fonctionnel (un objet par joueur / ennemi / dÃ©cors / UI...), mais Ã§a colle aussi vachement bien d'un point de vue gameplay :
+Dans le cadre du jeu vidéo, cette approche est trèèèèèès attrayante. Parce que non seulement ça colle d'un point de vue découpage fonctionnel (un objet par joueur / ennemi / décors / UI...), mais ça colle aussi vachement bien d'un point de vue gameplay :
 
-je veux crÃ©er plusieurs ennemis distincts qui attaquent mon joueur ? Hop, une instance d'objet par ennemi, chacun avec ses propres points de vie, son propre attack pattern, sa propre reconnaissance du terrain... et potentiellement, rÃ©sultante de tout Ã§a : un comportement unique par ennemi !
+je veux créer plusieurs ennemis distincts qui attaquent mon joueur ? Hop, une instance d'objet par ennemi, chacun avec ses propres points de vie, son propre attack pattern, sa propre reconnaissance du terrain... et potentiellement, résultante de tout ça : un comportement unique par ennemi !
 
-Tous les gros moteurs de jeux ont donc adoptÃ© cette approche dans leur design de base et dans le choix du langage adossÃ© :
+Tous les gros moteurs de jeux ont donc adopté cette approche dans leur design de base et dans le choix du langage adossé :
 - <span style="color: steelblue;">Unreal Engine</span> avec le <span style="color: steelblue;">C++</span>
 - <span style="color: steelblue;">Unity</span> avec le <span style="color: steelblue;">C#</span>
-- <span style="color: steelblue;">Godot</span> avec le <span style="color: steelblue;">C#</span> et son langage dÃ©diÃ© le <span style="color: steelblue;">GDScript</span> (qui est une variante intÃ©ressante, plus modulaire autour d'un concept de composition/noeud).
+- <span style="color: steelblue;">Godot</span> avec le <span style="color: steelblue;">C#</span> et son langage dédié le <span style="color: steelblue;">GDScript</span> (qui est une variante intéressante, plus modulaire autour d'un concept de composition/noeud).
 
-Mais tout aussi **flexible** et **adaptÃ©** qu'est le POO pour le **game design**, il a un problÃ¨me majeur : il **scale** trÃ¨s mal. A vouloir regrouper au sein d'un mÃªme objet Ã  la fois les donnÃ©es et ses traitements, par design les objets deviennent des Ã©lÃ©ments extrÃªmement **volatiles** dont on ne sait Ã  l'avance, ni ce qu'ils vont faire, ni la taille mÃ©moire qu'ils vont occuper.
+Mais tout aussi **flexible** et **adapté** qu'est le POO pour le **game design**, il a un problème majeur : il **scale** très mal. A vouloir regrouper au sein d'un même objet à la fois les données et ses traitements, par design les objets deviennent des éléments extrêmement **volatiles** dont on ne sait à l'avance, ni ce qu'ils vont faire, ni la taille mémoire qu'ils vont occuper.
 
 <div style="display: flex; gap: 20px; align-items: center;">
     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1;">
-        <span style="color: orange;">-- La flexibilitÃ© est un compromis de performance --</span>
-        <a href="/static/png/ECS/GameObject_Entity_Memory.png" target="_blank"><img src="/static/png/ECS/GameObject_Entity_Memory.png" alt="Comparaison mÃ©moire GameObject vs Entity" width="100%"/></a>
+        <span style="color: orange;">-- La flexibilité est un compromis de performance --</span>
+        <a href="/static/png/ECS/GameObject_Entity_Memory.png" target="_blank"><img src="/static/png/ECS/GameObject_Entity_Memory.png" alt="Comparaison mémoire GameObject vs Entity" width="100%"/></a>
         <a href="https://ilogos.biz/what-is-unitys-new-data-oriented-technology-stack-dots/" target="_blank">Source de l'image</a>
     </div>
     <div style="flex: 1;">
 
-Cette nature indÃ©finie de l'objet oblige une architecture qui permet de manager n'importe quel Ã©lÃ©ment qui lui serait attachÃ©. Ne pouvant anticiper la structure de l'objet, sa crÃ©ation se fait Ã  la volÃ©e avec un **rangement mÃ©moire parcÃ©laire** (ou en moins poÃ©tique : **yolo, je te range oÃ¹ je trouve de la place libre**).
+Cette nature indéfinie de l'objet oblige une architecture qui permet de manager n'importe quel élément qui lui serait attaché. Ne pouvant anticiper la structure de l'objet, sa création se fait à la volée avec un **rangement mémoire parcélaire** (ou en moins poétique : **yolo, je te range où je trouve de la place libre**).
 
-Travailler sur un objet nÃ©cessite alors de le reconstituer faÃ§on fil d'Ariane, en remontant Ã  chaque section de mÃ©moire oÃ¹ une partie de ses donnÃ©es est stockÃ©e.
+Travailler sur un objet nécessite alors de le reconstituer façon fil d'Ariane, en remontant à chaque section de mémoire où une partie de ses données est stockée.
 
-Or les accÃ¨s mÃ©moires, c'est le coeur de la performance et ce scan incessant pour reconstituer les objets est un couperet brutal.
+Or les accès mémoires, c'est le coeur de la performance et ce scan incessant pour reconstituer les objets est un couperet brutal.
 
 </div>
 </div>
@@ -68,19 +68,19 @@ Or les accÃ¨s mÃ©moires, c'est le coeur de la performance et ce scan incessa
 
 **Le saint sauveur : le <span style="color: steelblue;">DOD</span> !**
 
-L'**ECS** (Entity Component System) est une architecture qui rentre dans le paradigme du **DOD** (Data Oriented Design). Dans le cadre de **Unity**, c'est mÃªme trÃ¨s clair, on parle de **DOTS** (Data Oriented Technology Stack). *Promis je m'arrÃªte lÃ  avec les acronymes des enfers infernaux.* ðŸ˜š
+L'**ECS** (Entity Component System) est une architecture qui rentre dans le paradigme du **DOD** (Data Oriented Design). Dans le cadre de **Unity**, c'est même très clair, on parle de **DOTS** (Data Oriented Technology Stack). *Promis je m'arrête là avec les acronymes des enfers infernaux.* 😚
 
 
 
 <div style="display: flex; gap: 20px; align-items: center;">
     <div style="flex: 1;">
 
-L'ECS en soi n'est pas un concept nouveau. Si j'en crois <a href="https://en.wikipedia.org/wiki/Entity_component_system" target="_blank">WikipÃ©dia</a>, la 1Ã¨re version d'une architecture similaire Ã  l'ECS dans un jeu commercial remonte Ã  **Thief : The Dark Project en 1998**.
+L'ECS en soi n'est pas un concept nouveau. Si j'en crois <a href="https://en.wikipedia.org/wiki/Entity_component_system" target="_blank">Wikipédia</a>, la 1ère version d'une architecture similaire à l'ECS dans un jeu commercial remonte à **Thief : The Dark Project en 1998**.
 
 **-Digression-** Jeu extraordinaire au passage, auquel j'ai eu la chance de pouvoir jouer dans mon enfance
-(attention vos rÃ©tines : <a href="https://www.youtube.com/watch?v=hHWYCfuPQHM" target="_blank">trailers d'Ã©poque</a>).
+(attention vos rétines : <a href="https://www.youtube.com/watch?v=hHWYCfuPQHM" target="_blank">trailers d'époque</a>).
 
-Il disposait d'une quantitÃ© impressionnante d'objets interagissables et dotÃ©s de physique, qu'on pouvait lancer pour faire du bruit, faire bouger d'autres objets, assommer des gardes etc etc... en vue de commettre le vol parfait sans aucun mort. Une rÃ©fÃ©rence en terme d'infiltration.
+Il disposait d'une quantité impressionnante d'objets interagissables et dotés de physique, qu'on pouvait lancer pour faire du bruit, faire bouger d'autres objets, assommer des gardes etc etc... en vue de commettre le vol parfait sans aucun mort. Une référence en terme d'infiltration.
 **-Fin de digression-**
 
 </div>
@@ -90,14 +90,14 @@ Il disposait d'une quantitÃ© impressionnante d'objets interagissables et dotÃ
 
 </div>
 
-L'essence de l'ECS : ne plus organiser le code autour d'une logique fonctionnelle, mais d'une logique qui vise Ã  optimiser l'agencement de la donnÃ©e, aussi sommairement nommÃ© le <a href="https://fr.wikipedia.org/wiki/Principe_de_localit%C3%A9_(informatique)" target="_blank">principe de localitÃ©</a>.
+L'essence de l'ECS : ne plus organiser le code autour d'une logique fonctionnelle, mais d'une logique qui vise à optimiser l'agencement de la donnée, aussi sommairement nommé le <a href="https://fr.wikipedia.org/wiki/Principe_de_localit%C3%A9_(informatique)" target="_blank">principe de localité</a>.
 
 Son design en soi est relativement simple :
 - on remplace le concept d'objet par celui d'**<span style="color: steelblue;">entity</span>**, qui n'est qu'un identifiant unique.
-- Ã  cette entitÃ©, on va lier des **<span style="color: steelblue;">components</span>**, qui ne sont que des conteneurs de donnÃ©es (des *structs*)
-- on regroupe les entitÃ©s qui disposent des mÃªmes composants dans des **<span style="color: steelblue;">archetypes</span>** : toutes les entitÃ©s appartenant Ã  un mÃªme archÃ©type sont rangÃ©es de maniÃ¨re contiguÃ« en mÃ©moire
-- on peut alors **<span style="color: steelblue;">query</span>** des groupes d'entitÃ©s en filtrant par composant (comme on requÃªterait une base de donnÃ©es)
-- au travers de **<span style="color: steelblue;">systems</span>** centralisÃ©s, on traitera la donnÃ©e requÃªtÃ©e en masse via un dÃ©coupage en **<span style="color: steelblue;">chunks</span>** et une rÃ©partition sur du **<span style="color: steelblue;">multi-threading</span>**
+- à cette entité, on va lier des **<span style="color: steelblue;">components</span>**, qui ne sont que des conteneurs de données (des *structs*)
+- on regroupe les entités qui disposent des mêmes composants dans des **<span style="color: steelblue;">archetypes</span>** : toutes les entités appartenant à un même archétype sont rangées de manière contiguë en mémoire
+- on peut alors **<span style="color: steelblue;">query</span>** des groupes d'entités en filtrant par composant (comme on requêterait une base de données)
+- au travers de **<span style="color: steelblue;">systems</span>** centralisés, on traitera la donnée requêtée en masse via un découpage en **<span style="color: steelblue;">chunks</span>** et une répartition sur du **<span style="color: steelblue;">multi-threading</span>**
 
 <a href="/static/png/ECS/Unity_ECS_Concept.png" target="_blank"><img src="/static/png/ECS/Unity_ECS_Concept.png" alt="Concept ECS Unity" width="100%"/></a>
 
@@ -105,13 +105,13 @@ Son design en soi est relativement simple :
     <blockquote class="callout tip" data-callout="tip">
         <div style = "display: flex; justify-content: center; align-items: center;" class="callout-title">
             <div class="callout-icon"></div>
-            <div class="callout-title-inner"><span>ImplÃ©mentation OOP vs ECS</span></div>
+            <div class="callout-title-inner"><span>Implémentation OOP vs ECS</span></div>
         </div>
         <div>
             <span>
-En OOP, on aurait ici eu un personnage qui porterait une position, une direction et une vitesse ainsi qu'une mÃ©thode Move() qui s'exÃ©cuterait Ã  chaque frame.
+En OOP, on aurait ici eu un personnage qui porterait une position, une direction et une vitesse ainsi qu'une méthode Move() qui s'exécuterait à chaque frame.
 
-En ECS, on crÃ©e 3 composants de donnÃ©es, liÃ©s entre eux par l'ID unique d'une entitÃ©. Ensuite un systÃ¨me isolÃ© va requÃªter toutes les entitÃ©s qui disposent de la combinaison de ces 3 composants (qu'ils appartiennent ou non au mÃªme archÃ©type, seule la combinaison de composants importe) et va traiter le calcul du mouvement en parallÃ¨le.</span>
+En ECS, on crée 3 composants de données, liés entre eux par l'ID unique d'une entité. Ensuite un système isolé va requêter toutes les entités qui disposent de la combinaison de ces 3 composants (qu'ils appartiennent ou non au même archétype, seule la combinaison de composants importe) et va traiter le calcul du mouvement en parallèle.</span>
         </div>
     </blockquote>
 </div>
@@ -130,7 +130,7 @@ Cette approche permet d'augmenter d'au moins un facteur (x10) les performances. 
                 allowfullscreen>
             </iframe>
         </div>
-        <span style="display: block; text-align: center; margin-top: 8px;">Pas d'ECS, 1k unitÃ©s sans VAT*, sans simulation, sans dÃ©cors</span>
+        <span style="display: block; text-align: center; margin-top: 8px;">Pas d'ECS, 1k unités sans VAT*, sans simulation, sans décors</span>
     </div>
     <div style="flex: 1; min-width: 300px;">
         <div style="position: relative; width: 100%; padding-bottom: 56.25%;">
@@ -142,7 +142,7 @@ Cette approche permet d'augmenter d'au moins un facteur (x10) les performances. 
                 allowfullscreen>
             </iframe>
         </div>
-        <span style="display: block; text-align: center; margin-top: 8px;">ECS, 100k unitÃ©s avec VAT*, simulation simple, sans dÃ©cors</span>
+        <span style="display: block; text-align: center; margin-top: 8px;">ECS, 100k unités avec VAT*, simulation simple, sans décors</span>
     </div>
     <div style="flex: 1; min-width: 300px;">
         <div style="position: relative; width: 100%; padding-bottom: 56.25%;">
@@ -154,7 +154,7 @@ Cette approche permet d'augmenter d'au moins un facteur (x10) les performances. 
                 allowfullscreen>
             </iframe>
         </div>
-        <span style="display: block; text-align: center; margin-top: 8px;">ECS, 50k unitÃ©s avec VAT*, simulation avancÃ©e, 180k dÃ©cors</span>
+        <span style="display: block; text-align: center; margin-top: 8px;">ECS, 50k unités avec VAT*, simulation avancée, 180k décors</span>
     </div>
 </div>
 <div style = "display: flex; justify-content: center; align-items: center;">
@@ -164,54 +164,54 @@ Cette approche permet d'augmenter d'au moins un facteur (x10) les performances. 
             <span>VAT (Vertex Animated Texture)</span>
         </div>
         <div>
-            <p>C'est une technique d'animation qui stocke les mouvements des modÃ¨les dans une texture lue directement par le GPU.
-            AllÃ¨ge fortement la charge CPU, au dÃ©triment d'un coÃ»t en RAM et d'une perte de flexibilitÃ© dans le process d'implÃ©mentation des animations.
-            <a href="https://stoyan3d.wordpress.com/2021/07/23/vertex-animation-texture-vat/" target="_blank">Lien vers un article (anglais) si vous voulez plus de dÃ©tails.</a></p>
+            <p>C'est une technique d'animation qui stocke les mouvements des modèles dans une texture lue directement par le GPU.
+            Allège fortement la charge CPU, au détriment d'un coût en RAM et d'une perte de flexibilité dans le process d'implémentation des animations.
+            <a href="https://stoyan3d.wordpress.com/2021/07/23/vertex-animation-texture-vat/" target="_blank">Lien vers un article (anglais) si vous voulez plus de détails.</a></p>
         </div>
     </blockquote>
 </div>
 
-*- Les 3 vidÃ©os tournent autour de 40-60 FPS. L'approche OOP me permet d'animer 1 000 unitÃ©s (disclaimer : en y ajoutant le VAT, entre 5k et 10k serait une cible envisageable). Avec l'approche ECS, je peux monter Ã  100 000 unitÃ©s, avec par dessus une simulation qui leur permet de s'esquiver et d'avoir un vrai pathfinding via un champs de vecteurs. L'Ã©cart de performance entre les 2 implÃ©mentations est abyssal pour ce genre de cas d'usage. -*
+*- Les 3 vidéos tournent autour de 40-60 FPS. L'approche OOP me permet d'animer 1 000 unités (disclaimer : en y ajoutant le VAT, entre 5k et 10k serait une cible envisageable). Avec l'approche ECS, je peux monter à 100 000 unités, avec par dessus une simulation qui leur permet de s'esquiver et d'avoir un vrai pathfinding via un champs de vecteurs. L'écart de performance entre les 2 implémentations est abyssal pour ce genre de cas d'usage. -*
 
-C'est donc une architecture extrÃªmement puissante, qui a trouvÃ© moult cas d'usage dans des simulations de :
+C'est donc une architecture extrêmement puissante, qui a trouvé moult cas d'usage dans des simulations de :
 - foules
 - trafic
-- villes / Ã©cosystÃ¨mes
+- villes / écosystèmes
 - projectiles / particules
 - sandbox / MMO
 
-qui manipulent tous de grandes quantitÃ©s d'objets non-statiques et pour lesquels le DOD fait des merveilles.
+qui manipulent tous de grandes quantités d'objets non-statiques et pour lesquels le DOD fait des merveilles.
  
-Mais vous remarquerez que cette liste est plutÃ´t restreinte et qu'on n'utilise pas cette architecture partout... ðŸ‘€
+Mais vous remarquerez que cette liste est plutôt restreinte et qu'on n'utilise pas cette architecture partout... 👀
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
 
 **Un grand pouvoir implique...**
 
-Il est un piÃ¨ge dans lequel il ne faut pas tomber : **la performance pour la performance**, ce bon vieux over-engineering ! (et bon sang que c'est dur de ne pas tomber dans ce piÃ¨ge quand on fait de l'ingÃ©nierie...).
+Il est un piège dans lequel il ne faut pas tomber : **la performance pour la performance**, ce bon vieux over-engineering ! (et bon sang que c'est dur de ne pas tomber dans ce piège quand on fait de l'ingénierie...).
 
-S'il est vrai que <span style="color: orange;">-- La flexibilitÃ© est un compromis de performance --</span>, l'inverse est tout aussi vrai <span style="color: orange;">-- La performance est un compromis de flexibilitÃ© --</span>. Or la **flexibilitÃ©** est l'un des coeurs de la **productivitÃ©**.
+S'il est vrai que <span style="color: orange;">-- La flexibilité est un compromis de performance --</span>, l'inverse est tout aussi vrai <span style="color: orange;">-- La performance est un compromis de flexibilité --</span>. Or la **flexibilité** est l'un des coeurs de la **productivité**.
 
-**La performance n'est que rarement un objectif** en soi (Ã  part si vous vous appelez Google/Amazon et que vous devez rÃ©pondre Ã  des milliards de requÃªtes utilisateurs Ã  la seconde). Non elle est surtout un **prÃ©-requis minimal d'acceptation de l'utilisateur** :
-- si la performance est trop dÃ©gradÃ©e, l'expÃ©rience utilisateur le sera aussi et il partira
-- mais Ãªtre trop performant n'amÃ©liorera pas l'expÃ©rience perÃ§ue cÃ´tÃ© utilisateur et vous aurez dÃ©pensÃ© temps/argent en pure perte
+**La performance n'est que rarement un objectif** en soi (à part si vous vous appelez Google/Amazon et que vous devez répondre à des milliards de requêtes utilisateurs à la seconde). Non elle est surtout un **pré-requis minimal d'acceptation de l'utilisateur** :
+- si la performance est trop dégradée, l'expérience utilisateur le sera aussi et il partira
+- mais être trop performant n'améliorera pas l'expérience perçue côté utilisateur et vous aurez dépensé temps/argent en pure perte
 
-La **performance** est donc une **affaire d'Ã©quilibre** : une limite basse stricte Ã  ne jamais franchir et une limite haute diffuse Ã  tempÃ©rer, afin de maximiser la productivitÃ© de features, qui est le but premier.
+La **performance** est donc une **affaire d'équilibre** : une limite basse stricte à ne jamais franchir et une limite haute diffuse à tempérer, afin de maximiser la productivité de features, qui est le but premier.
 
-L'ECS Ã©tant une rÃ©ponse de performance, il est par nature **plus complexe et peu flexible au changement**. Il est beaucoup plus long Ã  mettre en place, demande de nombreux composants distincts, impose des restrictions sur le type de donnÃ©es et globalement, rallonge drastiquement les temps de dÃ©veloppement, mÃªme pour des features simples.
+L'ECS étant une réponse de performance, il est par nature **plus complexe et peu flexible au changement**. Il est beaucoup plus long à mettre en place, demande de nombreux composants distincts, impose des restrictions sur le type de données et globalement, rallonge drastiquement les temps de développement, même pour des features simples.
 
-L'industrie a choisi comme toujours l'approche la plus pragmatique : l'**hybride**. Savoir choisir ce qui mÃ©rite une approche ECS pour la performance VS choisir l'approche OOP quand le fonctionnel et l'itÃ©ration priment. L'approche ECS est par exemple inutile dans la plupart des jeux avec des scÃ¨nes restreintes, qui compose l'immense majoritÃ© de nos catalogues. Au contraire, la moindre simulation de masse gagnera massivement Ã  l'implementer.
+L'industrie a choisi comme toujours l'approche la plus pragmatique : l'**hybride**. Savoir choisir ce qui mérite une approche ECS pour la performance VS choisir l'approche OOP quand le fonctionnel et l'itération priment. L'approche ECS est par exemple inutile dans la plupart des jeux avec des scènes restreintes, qui compose l'immense majorité de nos catalogues. Au contraire, la moindre simulation de masse gagnera massivement à l'implementer.
 
-Mais si l'industrie a longtemps dÃ» traiter l'ECS et l'OOP comme deux mondes sÃ©parÃ©s, une nouvelle voie s'ouvre peut-Ãªtre. A la  <a href="https://youtu.be/BtObK0arD_M" target="_blank">GDC de mars 2026</a>, **Unity** a dÃ©cidÃ© de taper fort : pourquoi ne pas **fusionner** les 2 approches ?
+Mais si l'industrie a longtemps dû traiter l'ECS et l'OOP comme deux mondes séparés, une nouvelle voie s'ouvre peut-être. A la  <a href="https://youtu.be/BtObK0arD_M" target="_blank">GDC de mars 2026</a>, **Unity** a décidé de taper fort : pourquoi ne pas **fusionner** les 2 approches ?
 
 <a href="https://pbs.twimg.com/media/HCq5KsqaUAcM-dR?format=jpg&name=large" target="_blank"><img src="https://pbs.twimg.com/media/HCq5KsqaUAcM-dR?format=jpg&name=large" alt="GDC Unity 2026" width="100%"/></a>
 
-L'ECS deviendrait un package core du moteur (et non plus un add-on Ã  installer), Ã  la maniÃ¨re d'un [**Bevy**](https://bevy.org/) (un moteur de jeu en Rust nativement ECS). Les entitÃ©s deviendront alors le backend de tout le moteur, mais pour autant les GameObjects ne disparaissent pas : ils deviennent une couche de confort par dessus les entitÃ©s, le moteur prenant la main pour faire la conversion. La force du design OOP par dessus, la puissance de l'ECS en dessous.
+L'ECS deviendrait un package core du moteur (et non plus un add-on à installer), à la manière d'un [**Bevy**](https://bevy.org/) (un moteur de jeu en Rust nativement ECS). Les entités deviendront alors le backend de tout le moteur, mais pour autant les GameObjects ne disparaissent pas : ils deviennent une couche de confort par dessus les entités, le moteur prenant la main pour faire la conversion. La force du design OOP par dessus, la puissance de l'ECS en dessous.
 <span style="color: orange;">-- L'ECS ne sera plus un choix, mais le socle. Le GameObject ne sera plus une alternative, mais une interface. --</span>
 
-En d'autres termes, l'approche hybride dont je parlais plus haut ne sera plus un compromis d'architecture, mais le mode de fonctionnement par dÃ©faut du moteur. Vous voulez du prototypage rapide ? Vous restez au niveau GameObject. Vous voulez de la performance brute ? Le moteur vous permettra de basculer votre architecture en GameObjects vers de l'ECS et ainsi profiter de ses options. MÃªme donnÃ©es, mÃªme moteur, mais deux mondes en un.
+En d'autres termes, l'approche hybride dont je parlais plus haut ne sera plus un compromis d'architecture, mais le mode de fonctionnement par défaut du moteur. Vous voulez du prototypage rapide ? Vous restez au niveau GameObject. Vous voulez de la performance brute ? Le moteur vous permettra de basculer votre architecture en GameObjects vers de l'ECS et ainsi profiter de ses options. Même données, même moteur, mais deux mondes en un.
 
-Et je vous avoue que je suis trÃ¨s curieux de voir le rÃ©sultat. ðŸ‘€
+Et je vous avoue que je suis très curieux de voir le résultat. 👀
 
 <script src="https://giscus.app/client.js"
         data-repo="Keilthar/devlog"
