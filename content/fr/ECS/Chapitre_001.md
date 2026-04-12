@@ -21,6 +21,8 @@ title: 💡 1 - ECS, le pourquoi
     </blockquote>
 </div>
 
+<p style="text-align: center;"><a href="../../index.xml">🔊 S'abonner au flux RSS</a></p>
+
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
 
 *Je vais ici parler dans un contexte **Game Dev**, mais fondamentalement, c'est un sujet qui est transverse au métaverse (ouai j'ose le mot 😏) du développement : **<span style="color: steelblue;">l'orienté Object</span> VS <span style="color: steelblue;">l'orienté Data</span>**.*

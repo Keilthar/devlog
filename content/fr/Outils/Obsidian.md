@@ -16,13 +16,13 @@ hidden: false
         </div>
         <div class="callout-content">
             <div class="callout-content-inner">
-                <a href="/static/png/Kanban_System.webp" target="_blank"><img src="/static/png/Kanban_System.webp" alt="Unity ECS" width="100%"/></a>
+                <a href="/static/png/Kanban_System.webp" target="_blank"><img src="/static/png/Kanban_System.webp" alt="Kanban" width="100%"/></a>
             </div>
         </div>
     </blockquote>
 </div>
 
-<p style="text-align: center;"><a href="../index.xml">🔊 S'abonner au flux RSS</a></p>
+<p style="text-align: center;"><a href="../../index.xml">🔊 S'abonner au flux RSS</a></p>
 
 ---
 
