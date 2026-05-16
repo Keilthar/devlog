@@ -1,5 +1,5 @@
 ﻿---
-title: 💡 2 - ECS, les bases
+title: 💡 2 - ECS, Penser la data
 ---
 
 <style>
@@ -50,7 +50,8 @@ partial struct SYS_Unit_Spawn : ISystem
         // Crée une entité vide avec un identifiant unique
         Entity UnitEntity = EM.CreateEntity(); 
 
-        // Ajout des Components qui caractérisent comme une unité mobile
+        // Ajout des Components qui caractérisent
+        // l'entité comme une unité mobile
         EM.SetName(UnitEntity, "Unit");
         EM.AddComponent(UnitEntity, new LocalTransform());
         EM.AddComponent(UnitEntity, new TAG_Unit());
@@ -59,9 +60,6 @@ partial struct SYS_Unit_Spawn : ISystem
     }
 }
 ```
-
-Je trouve que cette implémentation reflèche bien la dualité, entre une déclaration brute de l'entité technique, qui n'est en soi qu'une espèce de conteneur vide qui n'existe qu'au travers de son identifiant unique, auquel on ajoute ensuite via l'orchestrateur **EntityManager** des **Components** qui lui donnent son identité fonctionnelle.
-
 ---
 
 **Les Components**
@@ -92,11 +90,22 @@ public struct BUFF_Unit_Defense : IBufferElementData
 
 Cependant avec cette définition, je vous ai un peu (beaucoup 😏) menti au nom de la simplification. Car c'est passer à côté de la philosophie générale de l'ECS que de définir les **Components** uniquement comme des porteurs de données. Ils sont bien plus que ça.
 
-En soi, l'ensemble des **Components** représente un **bus de données publiques**, dans lesquels les **Systems** vont aller piocher (soit en lecture, soit en écriture) pour produire des traitements. Autrement dit, un **System** est aveugle à l'état d'avancement d'une entité spécifique, il n'interagit qu'au travers de la data exposée de manière générique. Ceci impose donc que l'entité porte au travers de sa data son état et sa logique fonctionnelle de l'instant T pour que le **System** concerné puisse travailler.
+<div style="display: flex; gap: 20px; align-items: center;">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1;">
+        <a href="/static/png/ECS/Factorio_MainBus.png" target="_blank"><img src="/static/png/ECS/Factorio_MainBus.png" alt="Factorio Main Bus" width="100%"/></a>
+    </div>
+    <div style="flex: 1;">
+
+En soi, l'ensemble des **Components** représente un **bus de données publiques**, dans lesquels les **Systems** vont aller piocher (soit en lecture, soit en écriture) pour produire des traitements. Pour ceux qui ont joué à **Factorio**, j'aime beaucoup me le représenter mentalement comme le **Main Bus** qui distribue les ressources dans la base.
+
+Autrement dit, un **System** est aveugle à l'état d'avancement d'une entité spécifique, il n'interagit qu'au travers de la data exposée de manière générique. Ceci impose donc que l'entité porte au travers de sa data son état et sa logique fonctionnelle de l'instant T pour que le **System** concerné puisse travailler.
+
+</div>
+</div>
 
 Les **Components** sont donc à la fois élément **porteur de data**, mais aussi élément de **filtrage de data** au travers des **Queries**. Ils définissent fondamentalement **qui peut interagir avec quoi et surtout pourquoi**. C'est un peu contre-intuitif de prime abord, car le principe d'une entité ECS, c'est justement de ne pas porter de traitements et par extension pas de logique, mais le fait que l'entité doit exposer des états soumet l'architecture à une logique **data driven** (c'est pour ça que je préfère ce terme à **data oriented**).
 
-Et c'est quelque chose d'extrêmement clivant, puisque le POO tend à rendre les **objets autonomes et fermés** (ce qui est d'ailleurs un des fondamentaux du Clean Code, même si le "Clean" est fort discutable...).
+Et c'est quelque chose d'extrêmement clivant, puisque le POO tend à rendre les **objets autonomes et fermés** (ce qui est d'ailleurs un des fondamentaux du Clean Code, même si le "Clean" est à mon humble avis, fort discutable...).
 
 Par nature, **l'ECS impose de rendre explicite l'intégralité de l'état d'une entité, pas juste sa data brute** et c'est une gymnastique mentale à laquelle nous ne sommes pas historiquement habitués.
 
@@ -115,6 +124,7 @@ Cette structure doit forcément contenir les **Components** qu'un **System** va 
                         .WithAll<COMP_Unit_Movement>()
                         .Build();
 
+    // Récupération des unités et leur data pour traitement ensuite
     NativeArray<Entity> Units = Query_Units.ToEntityArray(Allocator.Temp);
     NativeArray<COMP_Unit_Movement> UnitsMovements = Query_Units.ToComponentArray<COMP_Unit_Movement>(Allocator.Temp);
 
@@ -125,7 +135,7 @@ Cette structure doit forcément contenir les **Components** qu'un **System** va 
 
 Et c'est là où on peut se rendre compte de la puissance de l'ECS, parce qu'au travers des **Components**, on peut gérer non seulement de la data, mais comme je disais auparavant, on peut aussi gérer des états/logique fonctionnelle.
 
-Imaginons par exemple que je ne veuille pas détruire mes unités quand elles meurent, mais juste les sortir de la carte et les désactiver jusqu'à un prochain respawn. Et bien je pourrais simplement désactiver leur **Component** TAG_Unit quand leurs PVs atteignent 0, puis lorsque j'ai de nouveau besoin, les **Query** via :
+Imaginons par exemple que je ne veuille pas détruire mes unités quand elles meurent, mais juste les sortir de la carte et les désactiver jusqu'à un prochain respawn. Et bien je pourrais simplement désactiver leur **Component** TAG_Unit quand leurs PVs atteignent 0, puis lorsque j'ai de nouveau besoin, les récupérer simplement via :
 
 ```csharp
     // Query toutes les Unités dont TAG_Unit est Disabled
@@ -192,10 +202,12 @@ partial struct SYS_Unit_Move : ISystem
     {
         EntityManager EM = state.EntityManager;
 
+        // Récupération de la data des unités
         NativeArray<Entity> Units = Query_Units.ToEntityArray(Allocator.Temp);
         NativeArray<COMP_Unit_Movement> UnitsMovements = Query_Units.ToComponentArray<COMP_Unit_Movement>(Allocator.Temp);
         NativeArray<LocalTransform> UnitsTransforms = Query_Units.ToComponentArray<LocalTransform>(Allocator.Temp);
 
+        // Boucle simple de mouvements
         float DeltaTime = SystemAPI.Time.DeltaTime();
         for (int UnitID = 0; UnitID < Units.Length; UnitID++)
         {
@@ -205,6 +217,7 @@ partial struct SYS_Unit_Move : ISystem
             EM.SetComponent(Units[UnitID], UnitTransfom);
         }
 
+        // Libération de la mémoire
         Units.Dispose();
         UnitsMovements.Dispose();
         UnitsTransforms.Dispose();
@@ -241,8 +254,10 @@ partial struct SYS_Unit_Move : ISystem
     {
         public float DeltaTime;
 
-        // Query, sur les components manipulés, avec en plus une notion de ReadWrite/ReadOnly stricte
-        public void Execute(RefRW<LocalTransform> Transform, RefRO<COMP_Unit_Movement> COMP_Movement) 
+        // Query, sur les components manipulés
+        // avec en plus une notion de ReadWrite/ReadOnly stricte
+        public void Execute(RefRW<LocalTransform> Transform,
+                            RefRO<COMP_Unit_Movement> COMP_Movement) 
         {
             COMP_Unit_Movement UnitMovement = COMP_Movement.ValueRO;
             Transform.ValueRW.Position += DeltaTime * UnitMovement.Speed * UnitMovement.Direction;
@@ -254,7 +269,7 @@ partial struct SYS_Unit_Move : ISystem
 En plus on insère le **[BurstCompile]** qui remplace la compilation C# via Mono/.NET JIT en code machine générique, par une compilation via LLVM (le même backend que Rust/Swift...) et du code machine optimisé.
 C'est la raison qui fait qu'on n'utilise pas d'objets managés et on interdit par conception les exceptions, les allocations de garbage collector... On obtient alors la force de l'ECS (data contigüe) couplée à une compilation bas niveau forte (SIMD / cache locality) rendant le tout très performant.
 
-C'est ce qui fait qu'utiliser Unity dans un contexte ECS se rapproche très fortement de l'utilisation de langages très typés comme **Rust** (et **Bevy** est un ECS natif grâce à ça). Et c'est aussi une des difficultés à surmonter quand on vient du POO/GameObject classique, on passe sur une implémentation qui demande une certaine rigueur de code (que personnellement j'apprécie beaucoup et qui produit un résultat bien plus prédictif).
+Utiliser Unity dans un contexte ECS se rapproche très fortement de l'utilisation de langages très typés comme **Rust** (et **Bevy** est un ECS natif pour cette raison). Et c'est aussi une des difficultés à surmonter quand on vient du POO/GameObject classique, on passe sur une implémentation qui demande une certaine rigueur de code (que personnellement j'apprécie beaucoup et qui produit un résultat bien plus prédictif).
 
 ---
 
@@ -271,7 +286,7 @@ La table est alors une représentation de l'**Archetype** en mémoire. On peut a
 | 2 | (0.5, 0, 0.4) | 0.7 |
 | 3 | (1, 0, 0.2) | 0.2 |
 
-Je trouve ça très pratique comme représentation mentale, parce que si vous avez déjà fait de la requête SQL, vous adoptez tout de suite certains réflexes sur comment vous allez compartimenter la data en table métier logique.
+Je trouve ça très pratique comme représentation mentale, parce que si vous avez déjà fait de la requête SQL, vous adoptez tout de suite certains réflexes sur comment vous allez compartimenter la data en tables métier logique.
 
 Mais une entité peut aussi représenter une table référentielle unique. Par exemple, mes unités peuvent voir leur vitesse de déplacement altérée. Plutôt que de stocker un NormalSpeed + CurrentSpeed dans chaque **Component** de chaque unité, ce qui n'aurait aucun sens car ça démultiplierait la même data :
 
@@ -282,21 +297,24 @@ Mais une entité peut aussi représenter une table référentielle unique. Par e
 | 3 | (1, 0, 0.2) | 0.2 | 0.5 |
 
 
-Je peux créer une entité singleton référentielle qui portera le NormalSpeed. Et personnellement, ces structures singletons référentielles, je les nomme justement **REF_**.
+Je peux créer une entité singleton référentielle qui portera le NormalSpeed. Et personnellement, ces structures singletons référentielles, je les nomme justement **REF_***.
 
 Je peux donc transformer ma data de mouvement d'unité ainsi :
 
 ```csharp
 //***** COMPONENTS *****
+// Filtre de query et état fonctionnelle du mouvement
 public struct TAG_Unit_IsMovable : IComponentData, IEnableableComponent {}
 
-public struct COMP_Unit_Movement : IComponentData // représente la capacité de mouvement à l'instant T
+// Capacité de mouvement à l'instant T
+public struct COMP_Unit_Movement : IComponentData 
 {
     public float3 Direction;
     public float SpeedMultiplier;
 }
 
-public struct REF_Unit_Movement : IComponentData // singleton unique partagé par toutes les unités
+// singleton unique partagé par toutes les unités
+public struct REF_Unit_Movement : IComponentData 
 {
     public float NormalSpeed;
 }
@@ -310,7 +328,7 @@ partial struct SYS_Unit_Move : ISystem
     {
         EM = state.EntityManager;
 
-        // Je déclare un singleton unique
+        // je déclare un singleton unique au démarrage
         Entity REFMovementEntity = EM.CreateEntity();
         EM.SetName(REFMovementEntity, "REF_Unit_Movement");
         EM.AddComponent(REFMovementEntity, new REF_Unit_Movement
@@ -318,7 +336,6 @@ partial struct SYS_Unit_Move : ISystem
             NormalSpeed = 0.5f
         });
 
-        // le système ne tourne que s'il existe au moins une unité qui peut bouger
         state.RequireForUpdate<TAG_Unit_IsMovable>();
         // le système a désormais besoin de l'existence du singleton pour tourner
         state.RequireForUpdate<REF_Unit_Movement>();
@@ -328,7 +345,7 @@ partial struct SYS_Unit_Move : ISystem
     {
         Job_UnitMove JobMove = new Job_UnitMove
         {
-            // Désormais je passe le Component du singleton dans mon job
+            // désormais je passe le Component du singleton dans mon job
             REF_Movement = SystemAPI.GetSingleton<REF_Unit_Movement>(),
             DeltaTime = SystemAPI.Time.DeltaTime()
         };
@@ -342,29 +359,32 @@ partial struct SYS_Unit_Move : ISystem
         [ReadOnly] public REF_Unit_Movement REF_Movement;
         public float DeltaTime;
 
-        // Query, avec en plus une notion de ReadWrite / ReadOnly sur les components
-        public void Execute(RefRW<LocalTransform> Transform, RefRO<COMP_Unit_Movement> COMP_Movement) 
+        public void Execute(RefRW<LocalTransform> Transform,
+                            RefRO<COMP_Unit_Movement> COMP_Movement) 
         {
             COMP_Unit_Movement UnitMovement = COMP_Movement.ValueRO;
-            Transform.ValueRW.Position += DeltaTime
-                                            * REF_Movement.NormalSpeed // vitesse référentielle unique qui ne changera jamais
-                                            * UnitMovement.SpeedMultiplier // multiplicateur variable dans le temps pour chaque unité, 1 par défaut
-                                            * UnitMovement.Direction;
+            Transform.ValueRW.Position +=
+                DeltaTime
+                // vitesse référentielle unique qui ne changera jamais
+                * REF_Movement.NormalSpeed
+                // multiplicateur variable dans le temps spécifique à chaque unité, par défaut = 1
+                * UnitMovement.SpeedMultiplier
+                * UnitMovement.Direction;
         }
     }
 }
 ```
 
-Et l'avantage par rapport à une constante : je peux modifier la valeur en live du component 'REF_Unit_Movement' sans avoir à relancer le jeu en changeant le code (et en plus ça facilite le tuning et permet de faire évoluer les unités au cours de la partie).
+Et l'avantage par rapport à une constante : je peux modifier la valeur en live du component *REF_Unit_Movement* sans avoir à recompiler le jeu (et en plus ça facilite le tuning et permet de faire évoluer les unités au cours de la partie).
 
 Et c'est là à mon sens toute la beauté (et la difficulté) de l'approche ECS. Le **Data Oriented** porte bien son nom, puisque la consommation de la data est directement liée à la façon dont vous l'exposez, ce qui est à proprement parler l'approche inverse du POO qui vise à concevoir des objets qui sont des orchestrateurs autonomes.
 
 Dans l'ECS, j'aurais tendance à dire que le plus important dans le design, c'est le **Component**. Faites un component fourre-tout et vous obtiendrez des systèmes monstrueux qui devront gérer des éléments logiques qui n'ont aucun rapport entre eux. Au contraire, faites des components trop fins et vous vous noierez dans un amas de structures avec des query de 10 km de long.
 
 La conception des components et des entités demande un certain temps d'adaptation pour trouver un équilibre et de trouver une façon de raisonner avec des systèmes logiques. Personnellement j'aime l'approche KISS (Keep It Stupidly Simple) et je pars du principe qu'un **System** ne doit traiter qu'une action très limitée, ce qui le rend simple à debug et facilite de facto la conception des **Components** :
-- de quoi a besoin un système qui va faire bouger mes unités ? -> convention de nommage des components associés, mon SYS_Unit_Movement va manipuler des **Components** '*_Unit_Movement_*'. Si j'ai accès à la vie des unités depuis ce système, y a probablement un souci
-- quelle data est partagée ou a besoin d'être reset à une valeur définie ? -> **Singleton référentiel**
-- quelle data est spécifique à chaque unité ? -> **Component** sur l'entité
+- de quoi a besoin un système qui va faire bouger mes unités ? -> si les **Components** query portent des données non utilisées, peut-être n'ont elles rien à faire ici
+- cette data est partagée ou a besoin d'être reset à une valeur définie ? -> **Singleton référentiel**
+- cette data est spécifique à chaque unité ? -> **Component** sur l'entité
 - cette data est-elle répétable ? -> **IBuffer** vs **IComponent**
 
 
@@ -373,7 +393,9 @@ D'ailleurs comme l'ECS est orienté data, j'ai aussi adopté une compartimentati
 <a href="/static/png/ECS/ECS_FileOrganization.png" target="_blank"><img src="/static/png/ECS/ECS_FileOrganization.png" alt="Organisation fichiers projet" width="100%"/></a>
 
 
-Bref l'ECS demande une certaine pratique mais une fois qu'on est dedans, on se met à optimiser la data très naturellement (peut-être même trop et c'est actuellement une des difficultés que j'éprouve à trop over-engineer mes structures alors que j'ai 5 entités qui se battent en duel dans ma scène). Mais c'est une approche très enrichissante dans la manière de penser une architecture.
+Bref l'ECS demande une certaine pratique mais une fois qu'on est dedans, on se met à optimiser la data très naturellement (peut-être même trop et c'est actuellement une des difficultés que j'éprouve à trop over-engineer mes structures alors que j'ai 5 entités qui se battent en duel dans ma scène, mais je pense que ça mériterait un article dédié d'anti-pattern ECS à surveiller 👀).
+
+En tout cas, c'est une approche très enrichissante dans la manière de penser une architecture !
 
 <script src="https://giscus.app/client.js"
         data-repo="Keilthar/devlog"
