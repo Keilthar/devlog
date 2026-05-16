@@ -1,5 +1,5 @@
 ---
-title: 💡 2 - ECS, Thinking about data
+title: 💡 2 - ECS, thinking the data
 ---
 
 <style>
