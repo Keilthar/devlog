@@ -248,7 +248,7 @@ partial struct SYS_Unit_Move : ISystem
         state.Dependency = JobMove.ScheduleParallel(state.Dependency);
     }
 
-    [BurstCompile] // Angry compilation taking advantage of the strict ECS/Jobs implementation
+    [BurstCompile] // Advanced compilation taking advantage of the strict ECS/Jobs implementation
     [WithAll(typeof(TAG_Unit_IsMovable))] // Filter on enabled units
     partial struct Job_UnitMove : IJobEntity
     {
