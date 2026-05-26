@@ -20,7 +20,7 @@ title: 💡 1 - ECS, the why
         </div>
     </blockquote>
 </div>
-<p style="text-align: center;"><a href="./en/index.xml">🔊 Subscribe via RSS</a></p>
+<p style="text-align: center;"><a href="../index.xml">🔊 Subscribe via RSS</a></p>
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
 
@@ -230,4 +230,3 @@ And I'll admit I'm very curious to see how it turns out. 👀
         crossorigin="anonymous"
         async>
 </script>
-

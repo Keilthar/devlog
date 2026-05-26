@@ -20,7 +20,7 @@ title: Articles (FR)
     </blockquote>
 </div>
 
-<p style="text-align: center;"><a href="./fr/index.xml">🔊 S'abonner au flux RSS</a></p>
+<p style="text-align: center;"><a href="./index.xml">🔊 S'abonner au flux RSS</a></p>
 
 **Qui suis-je ?**
 
@@ -56,6 +56,16 @@ Je vais donc déblatérer sur plein de sujets :
 - **<span style="color: steelblue;">optimisation</span>**  et **<span style="color: steelblue;">performances</span>** (ce ne sont pas des gros mots)
 - game dev assisté par **<span style="color: steelblue;">IA</span>** (ce mot là non plus)
 
+<div style="position: relative; width: 100%; padding-bottom: 56.25%;">
+    <iframe
+        src="https://www.youtube.com/embed/hilybD14InA?autoplay=1&mute=1&loop=1&playlist=hilybD14InA"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+    </iframe>
+</div>
+
 Sur ce **devlog**, vous trouverez 3 grands types de contenus :
 - des 📖 **<span style="color: steelblue;">tutos</span>** d'implémentations
 - de la 💡 **<span style="color: steelblue;">vulgarisation</span>** sur le **game dev** (et parfois sur de la **tech** plus généraliste)
@@ -82,4 +92,3 @@ Bref si vous vous intéressez au **game dev**, moyen que je parle d'un sujet qui
 </div>
 
 <p style="display: flex; justify-content: center; align-items: center;">________________________________________________________</p>
-
