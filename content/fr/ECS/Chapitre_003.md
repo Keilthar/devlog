@@ -496,6 +496,26 @@ Ceci permet d'inspecter très rapidement pour un périmètre donné les données
     </blockquote>
 </div>
 
+## Conclusion
+
+Je rappelle encore une fois que ce sont **<span style="color: steelblue;"> des règles auxquelles il faut penser, mais pas des règles à appliquer systématiquement</span>**. Elles permettent de structurer votre pensée et l'architecture de votre ECS.
+
+Oui, vous aurez forcément à un moment donné :
+- des systèmes qui doivent tourner à chaque frame sans aucun trigger ni filtrage
+- de la data qui vivra en dehors de l'ECS (les configurations/préférences du joueur ou la lecture des inputs sur Unity sont totalement hors ECS)
+- des systèmes avec plein de queries en entrée
+- des composants lus et écrits par plusieurs systèmes (le FlowField de mon jeu, c'est un gang-bang d'écriture parallélisé)
+
+Là où vous devriez soupçonner que vous vous y prenez probablement mal, c'est si ces cas deviennent systématiques au travers de votre projet, car ils engendreront un retour de bâton conséquent après un certain temps.
+
+À noter aussi que ces règles sont un formidable levier pour cadrer l'IA (et font, pour ma part, l'objet de `skills` dédiés dans les phases d'écriture mais aussi de review du code). L'ECS est incroyablement compatible avec l'IA, parce que très structuré/typé. Avec ces règles, je peux review très facilement tout périmètre codé par mon LLM, en inspectant simplement :
+- les composants créés dans les fichiers dédiés (vérification des doublons et de la pertinence des champs)
+- les systèmes créés (vérification de leur nom / fonction)
+- les éléments de déclenchement/filtrage des systèmes (combien de queries ? quels états filtrent-elles ? le système est-il ponctuel et nécessite-t-il un déclencheur contrôlé ?)
+
+Ces 3 règles de review me permettent de filtrer la quasi-intégralité des problèmes de performance. Ensuite, je peux me concentrer sur les systèmes les plus consommateurs qui font des calculs complexes, mais c'est à la marge. L'ECS devient alors un immense assemblage de petits systèmes `boilerplate`, avec un périmètre et des conditions d'exécution très restreintes, qui est une forme de **micro-segmentation** locale.
+
+J'espère que ces règles vous aideront à cadrer vos projets en tout cas !
 
 <script src="https://giscus.app/client.js"
         data-repo="Keilthar/devlog"

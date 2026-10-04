@@ -491,6 +491,26 @@ This makes it possible to inspect duplicate data very quickly for a given scope.
     </blockquote>
 </div>
 
+## Conclusion
+
+I'll remind you once again that these are **<span style="color: steelblue;"> rules to think about, but not rules to apply systematically</span>**. They help structure your thinking and the architecture of your ECS.
+
+Yes, at some point you will inevitably have:
+- systems that must run every frame without any trigger or filtering
+- data that lives outside the ECS (player settings/preferences or reading input in Unity are entirely outside the ECS)
+- systems with lots of input queries
+- components read and written by several systems (my game's FlowField is a gang bang of parallel writes)
+
+Where you should suspect that you're probably going about it the wrong way is if these cases become systematic throughout your project, because they will come back to bite you hard after a while.
+
+These rules are also a powerful way to guide AI (and, in my case, are covered by dedicated `skills` during both the code writing and code review phases). ECS is incredibly compatible with AI, because it is very structured/typed. With these rules, I can very easily review any scope coded by my LLM, simply by inspecting:
+- the components created in the dedicated files (checking for duplicates and the relevance of the fields)
+- the systems created (checking their name / function)
+- the systems' triggering/filtering elements (how many queries? which states do they filter? is the system a one-off and does it require a controlled trigger?)
+
+These 3 review rules allow me to catch almost all performance problems. Then I can focus on the most resource-intensive systems that perform complex calculations, but that is a marginal part of the work. ECS then becomes a huge assembly of small `boilerplate` systems, with a very limited scope and execution conditions, which is a form of local **micro-segmentation**.
+
+I hope these rules will help you structure your projects, in any case!
 
 <script src="https://giscus.app/client.js"
         data-repo="Keilthar/devlog"
